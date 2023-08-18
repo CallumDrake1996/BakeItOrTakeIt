@@ -26,6 +26,28 @@ def home():
     error = None
     return render_template('HomePage.html', error = error)
 
+@app.route('/SignUp', methods=['GET', 'POST'])
+def SignUp():
+    msg = ''
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+        username = request.form['username']
+        password = request.form['password']
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM Login WHERE username = %s', (username,))
+        account = cursor.fetchone()
+        if account:
+            msg = 'Account already exists!'
+        elif not re.match(r'[A-Za-z0-9]+', username):
+            msg = 'Username must contain only characters and numbers!'
+        elif not username or not password:
+            msg = 'Please fill out the form!'
+        else:
+            cursor.execute('INSERT INTO Login (username, password) VALUES (%s, %s)', (username, password,))
+            mysql.connection.commit()
+            msg = 'You have successfully registered!'
+            return render_template('register.html', msg=msg)
+    return render_template('register.html', msg=msg)
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     # Output a message if something goes wrong...
@@ -37,16 +59,14 @@ def login():
         password = request.form['password']
         # Check if account exists using MySQL
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM Log WHERE username = %s AND password = %s', (username, password,))
+        cursor.execute('SELECT * FROM Login WHERE username = %s AND password = %s', (username, password,))
         # Fetch one record and return result
         account = cursor.fetchone()
         # If account exists in accounts table in out database
         if account:
             # Create session data, we can access this data in other routes
-            session['loggedin'] = True
-            session['username'] = account['username']
-            # Redirect to home page
-            return 'Logged in successfully!'
+            session['loggedin'] = True            # Redirect to home page
+            return redirect(url_for('home'))
         else:
             # Account doesnt exist or username/password incorrect
             msg = 'Incorrect username/password!'

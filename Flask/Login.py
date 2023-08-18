@@ -20,3 +20,9 @@ def login():
 # debug for flask 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+                <div class="form-check d-flex justify-content-start mb-4">
+                  <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
+                  <label class="form-check-label" for="form1Example3"> Remember password </label>
+                </div>
