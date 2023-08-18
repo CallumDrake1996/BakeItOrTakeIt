@@ -1,7 +1,8 @@
 body{
   margin: 0;
   padding: 0;
-  background: url(/Images/background-transformed.jpeg);
+  background: url(/static/background-transformed.jpeg
+  );
   background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
