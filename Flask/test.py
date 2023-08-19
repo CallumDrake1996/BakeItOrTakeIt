@@ -3,14 +3,10 @@ from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import MySQLdb.cursors, re, hashlib
 # Route for handling the login page logic
-
-
-
 app = Flask(__name__)
 
-
 # Change this to your secret key (it can be anything, it's for extra protection)
-app.secret_key = 'your secret key'
+app.secret_key = 'work'
 
 # Enter your database connection details below
 app.config['MYSQL_HOST'] = 'localhost'
