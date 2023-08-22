@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    background: rgb(34,34,34);
+    font-family: sans-serif;
+    font-weight: 300;
+}
+
+
+
+.navtop {
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+header {
+    background: transparent #2C6E49;
+}
+
+header ::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.logo {
+    float: left;
+}
+
+
+nav {
+    float: right;
+    margin-right: 50px;
+}
+
+
+nav ul {
+    
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+
+nav li {
+    display: inline-block;
+    margin-left: 70px;
+    padding-top: 25px;
+
+    position: relative;
+}
+
+
+nav a {
+    color: #D68C45;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
+nav a:hover {
+    color: #FFC9B9;
+}
+
+
+nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background: #D68C45;
+    position: absolute;
+    top: -0.5;
+    left: 0;
+    right: 0;
+    transform: scale(0,1);
+    transition: transform ease-in-out 250ms;
+
+
+   
+
+    transition: all ease-in-out 250ms;
+
+}
+
+
+nav a :hover::before  {
+    transform: scale(1,1);
+
+}
+
+
+
+
+
+
+/* <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i> */
+
+
+
+
+
+
+/* 
+ D68C45 deep orange,  2C6E49 deep green, 4C956C slightly lighter green, FEFEE3 creamy colour, FFC9B9 muted pink  */
