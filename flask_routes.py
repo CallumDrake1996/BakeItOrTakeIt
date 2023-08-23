@@ -27,8 +27,8 @@ def recipes():
 def shop():
     return render_template('shopping_cart.html')
 
-@app.route('/login')
-def login():
+@app.route('/LogIn')
+def LogIn():
     return render_template('LogIn.html')
 
 @app.route('/contact_us')
