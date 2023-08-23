@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_mysqldb import MySQL
+from flask_mail import Mail, Message
 import MySQLdb.cursors
 import MySQLdb.cursors, re, hashlib
 # Route for handling the login page logic
@@ -14,13 +15,22 @@ app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'password'
 app.config['MYSQL_DB'] = 'MakeItOrTakeIt'
 
+# config mail
+app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 't43797192@gmail.com'
+app.config['MAIL_PASSWORD'] = 'vggxycrdbxtypako'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+mail = Mail(app)
+
 # Intialize MySQL
 mysql = MySQL(app)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/home', methods=['GET', 'POST'])
 def home():
     error = None
-    return render_template('HomePage.html', error = error)
+    return render_template('home.html', error = error)
 
 @app.route('/SignUp', methods=['GET', 'POST'])
 def SignUp():
@@ -38,7 +48,7 @@ def SignUp():
         elif not username or not password:
             msg = 'Please fill out the form!'
         else:
-            cursor.execute('INSERT INTO Login (username, password) VALUES (%s, %s)', (username, password,))
+            cursor.execute('INSERT INTO Login (email, username, password) VALUES (%s,%s, %s)', (username, username, password,))
             mysql.connection.commit()
             msg = 'You have successfully registered!'
             return render_template('register.html', msg=msg)
@@ -68,6 +78,47 @@ def login():
             msg = 'Incorrect username/password!'
     # Show the login form with message (if any)
     return render_template('LogIn.html', msg=msg)
-# debug for flask 
+
+@app.route('/forgotPassword', methods=['GET', 'POST'])
+def forgotPass():
+    msg = ''
+    if request.method == 'POST' and 'email' in request.form:
+        email = request.form['email']
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM Login WHERE email = %s', (email,))
+        account = cursor.fetchone()
+        if account:
+            cursor.execute('Select password from Login where email = %s', (email,))
+            password = cursor.fetchone()
+            msg = 'Email sent! Please check your inbox(spam folder too) for password'
+            text_body = render_template('email_template.html', password=password)
+            text = Message(subject='Password', html=text_body, sender =('BakeItOrTakeIt', 't43797192@gmail.com'), recipients = [email])
+            mail.send(text)
+        else:
+            msg = 'Email does not exist!'
+    return render_template('forgotPassword.html', msg=msg)
+
+@app.route('/mail', methods=['GET', 'POST'])
+def email():
+   msg = Message('Hello', sender = 't43797192@gmail.com', recipients = ['t43797192@gmail.com'])
+   msg.body = "Hello Flask message sent from Flask-Mail"
+   mail.send(msg)
+   return "Sent"
+ 
+@app.route('/contact_us')
+def contact_us():
+    return render_template('contact_us.html')
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/recipes')
+def recipes():
+    return render_template('Recipes.html')
+
+@app.route('/shop')
+def shop():
+    return render_template('shopping_cart.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
