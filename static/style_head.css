@@ -1,0 +1,243 @@
+
+:root {
+    /* --bar-width:   needs finished */
+--background: rgba(214, 0, 0, 0.938);
+--buttons: #FFA500;
+
+}
+
+/* .content.mainbk {
+    background-image: url("/static/main_cover.png");
+    height: 720px;
+} */
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    /* background: rgb(251, 252, 252); */
+    font-family: sans-serif;
+    font-weight: 400;
+}
+
+.content {
+    height: 200vh;
+    background-blend-mode: multiply;
+    background-size: cover;
+    display: grid;
+    place-items: center;
+}
+
+/*navigation styles start here */
+
+header {
+    /* background: var(--background); */
+    text-align: center;
+    position: fixed;
+    background-color: transparent;
+    transition: var(--background) 400ms ease-in-out;
+    /*z-index: -999; */
+    width: 100%;
+}
+
+header.scrolled {
+    transition: var(--background) 400ms ease-in-out;
+    background-color: var(--background); 
+}
+
+/* .logo {
+
+}  if logo needs adjusted in navbar do it here */
+
+/* .intro_box  {
+    background-color: rgba(214, 73, 51, 0.5);
+    right: auto;
+    float: right;
+
+} */
+    
+
+
+
+
+.nav-toggle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+  
+.nav-toggle:focus ~ .nav-toggle-label {
+    /* outline: 3px solid rgba(lightblue, .75); */
+}
+
+.nav-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+ }
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background: rgb(92, 90, 90);
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;
+    position: relative;
+
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+}
+
+.nav-toggle-label span::before {
+    bottom: 7px;
+} 
+
+ .nav-toggle-label span::after {
+    top: 7px;
+} 
+
+
+nav {
+    position: absolute;
+    text-align: left;
+    top: 100%;                /*may need adjusted if doesnt line up*/
+    left: 0;
+    /* background: var(--background); */
+    width: 100%;
+    transform: scale(1,0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+} 
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+
+nav a {
+    color: var(--buttons);
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+
+}
+
+nav a:hover  {
+    color: #06ec12;
+    
+}
+
+.nav-toggle:checked ~ nav {
+    transform: scale(1,1);
+}
+
+.nav-toggle:checked ~ nav a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+}
+
+.login_button a {
+    border: 2px solid #696868;
+    border-radius: 10%;
+    background-color: #696868;
+    color: var(--buttons);
+    padding: 14px 28px;
+    font-size: 16px;
+    list-style-type: none;
+    
+}
+
+@media screen and (min-width: 850px) {
+    .nav-toggle-label {
+        display: none;
+
+    
+}
+
+header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax() (600px, 3fr) 1fr;
+}
+
+
+.logo {
+    grid-column: 1 / 2;
+}
+
+nav {
+    position: relative;
+    text-align: left;
+    transition: none;
+    transform: scale(1,1);
+    background: none;
+    top: initial;
+    left: initial;
+     /* end Edge support stuff */
+    
+    grid-column: 3 / 4; 
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+nav ul {
+    display: flex;
+   
+}
+
+nav li {
+    margin-left: 1em;
+    margin-right: 5em;
+    margin-bottom: 0;
+
+}
+
+nav a {
+    opacity: 1;
+    position: relative;
+}
+
+nav a::before {
+    content: '';
+    display:block;
+    height: 5px;
+    background: greenyellow;
+    position: absolute;
+    top: -.75em;
+    left: 0;
+    right: 0;
+    transform: scale(0,1);
+    transition: transform ease-in-out 250ms;
+
+}
+
+nav a:hover::before {
+    transform: scale(1,1);
+}
+}   
+/* 
+ D68C45 deep orange,  2C6E49 deep green, 4C956C slightly lighter green, FEFEE3 creamy colour, FFC9B9 muted pink  */

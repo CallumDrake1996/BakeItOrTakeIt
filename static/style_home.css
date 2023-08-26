@@ -1,0 +1,22 @@
+.root {}
+
+
+
+.content.mainbk {
+    background-image: url("/static/main_cover.png");
+    height: 720px;
+}
+
+
+.intro_box  {
+    background-color: rgba(214, 73, 51, 0.5);
+    /* right: auto; */
+    float: right;
+    position: absolute;
+
+}
+
+header {
+    padding-bottom: 720px;
+}
+
