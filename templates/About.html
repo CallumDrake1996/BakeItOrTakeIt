@@ -3,32 +3,31 @@
   <head>
     <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
     <meta charset="utf-8">
-    <!doctype html>
-    <html lang="en">
-      <head>
-        <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>BakeItorTakeIt</title>
-      </head>
-     
-<header> 
-      <img src="{{url_for('static',filename='logo.png' )}}" height="80" alt = "logo" class="logo">
-      <input type="checkbox" id="nav-toggle" class="nav-toggle">
-      <nav>
-        <ul>
-          <li><a href="{{ url_for('home') }}">Home</a></li>
-          <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
-          <li><a href="{{ url_for('shop') }}">Shop</a></li>
-          <li><a href="{{ url_for('contact_us') }}">Contact</a></li>
-          <li><a href="{{ url_for('login') }}">Login</a></li>
-      </ul>
-    </nav>
-    <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
-</header>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BakeItorTakeIt</title>
+  </head>
+ 
+    <header> 
+          <img src="{{url_for('static',filename='logo.png' )}}" height="80" alt = "logo" class= "logo">
+          <input type="checkbox" id="nav-toggle" class="nav-toggle">
+          <nav>
+            <ul>
+              <li><a href="{{ url_for('home') }}">home</a></li>
+              <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
+              <li><a href="{{ url_for('shop') }}">Shop</a></li>
+              <li><a href="{{ url_for('contact_us') }}">Contact</a></li>
+              <!-- <li class="login_button"><a href="{{ url_for('login') }}">Login</a></li>            -->
+            </ul>
+            <ul>
+              <li class="login_button"><a href="{{ url_for('login') }}">Login</a></li>
+            </ul>
+          </nav>
+          <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+    </header>
 
-<div class="content"></div>
-<!-- put content here --> 
+    <div class="content mainbk">
+  <!-- put content here -->
+
 <body>
  
   <br>
