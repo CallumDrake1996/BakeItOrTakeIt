@@ -1,22 +1,29 @@
-.root {}
+:root {
+    --background: rgba(9, 58, 62, 0.5);
+    --teal_colour: rgba(78, 166, 153, 0.75);
+    --buttons: black;
+    --button_hover: #d64933;
+    --username: "";
 
+}
 
-
-.content.mainbk {
-    background-image: url("/static/main_cover.png");
+.content {
+    height: 200vh;
+    background-image: url("/static/main_cover.png"); 
+    background-blend-mode: multiply;
+    background-size: cover;
+    display: grid;
+    place-items: center;
     height: 720px;
+    z-index: -999;
 }
 
 
 .intro_box  {
     background-color: rgba(214, 73, 51, 0.5);
-    /* right: auto; */
-    float: right;
     position: absolute;
+    top: 150px;
+    right: auto;
+    float: right;
 
 }
-
-header {
-    padding-bottom: 720px;
-}
-

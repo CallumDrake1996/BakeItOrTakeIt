@@ -1,15 +1,11 @@
-
 :root {
-    /* --bar-width:   needs finished */
---background: rgba(214, 0, 0, 0.938);
---buttons: #FFA500;
+    --background: rgba(9, 58, 62, 0.5);
+    --teal_colour: rgba(78, 166, 153, 0.75);
+    --buttons: black;
+    --button_hover: #d64933;
+    --username: "";
 
 }
-
-/* .content.mainbk {
-    background-image: url("/static/main_cover.png");
-    height: 720px;
-} */
 
 
 *, *::before, *::after {
@@ -23,13 +19,18 @@ body {
     font-weight: 400;
 }
 
+
+/* this may need removed if not using image in header screen
 .content {
     height: 200vh;
+    background-image: url("/static/main_cover.png"); 
     background-blend-mode: multiply;
     background-size: cover;
     display: grid;
     place-items: center;
-}
+    height: 720px;
+    z-index: -999;
+} */
 
 /*navigation styles start here */
 
@@ -43,47 +44,30 @@ header {
     width: 100%;
 }
 
-header.scrolled {
-    transition: var(--background) 400ms ease-in-out;
-    background-color: var(--background); 
-}
 
-/* .logo {
-
-}  if logo needs adjusted in navbar do it here */
-
-/* .intro_box  {
-    background-color: rgba(214, 73, 51, 0.5);
-    right: auto;
-    float: right;
-
-} */
-    
-
-
-
-
-.nav-toggle {
+.logo {
     position: absolute;
     top: 0;
     left: 0;
-    display: none;
-}
+
+} 
+    
   
 .nav-toggle:focus ~ .nav-toggle-label {
-    /* outline: 3px solid rgba(lightblue, .75); */
+    outline: 3px solid rgba(lightblue, .75);
 }
 
 .nav-toggle-label {
     position: absolute;
     top: 0;
-    left: 0;
-    margin-left: 1em;
+    margin-top: 2em;
+    right: 0;
+    margin-right: 1em;
     height: 100%;
     display: flex;
     align-items: center;
+}
 
- }
 
 .nav-toggle-label span,
 .nav-toggle-label span::before,
@@ -96,6 +80,7 @@ header.scrolled {
     position: relative;
 
 }
+
 
 .nav-toggle-label span::before,
 .nav-toggle-label span::after {
@@ -111,13 +96,23 @@ header.scrolled {
     top: 7px;
 } 
 
+.nav-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 25px;
+    margin-top: 25px;
+    z-index: 999;
+    display: none;
+}
+
 
 nav {
     position: absolute;
-    text-align: left;
+    text-align: right;
     top: 100%;                /*may need adjusted if doesnt line up*/
     left: 0;
-    /* background: var(--background); */
+    background: var(--background);
     width: 100%;
     transform: scale(1,0);
     transform-origin: top;
@@ -125,14 +120,16 @@ nav {
 } 
 
 nav ul {
-    margin: 0;
+    margin-top: 4em;
     padding: 0;
+    float: right;
     list-style: none;
+ 
 }
 
 nav li {
-    margin-bottom: 1em;
-    margin-left: 1em;
+    margin-top: 1em;
+    margin-right: 1em;
 }
 
 nav a {
@@ -145,8 +142,9 @@ nav a {
 
 }
 
+
 nav a:hover  {
-    color: #06ec12;
+    color: var(--button_hover);
     
 }
 
@@ -159,37 +157,43 @@ nav a:hover  {
     transition: opacity 250ms ease-in-out 250ms;
 }
 
+
 .login_button a {
     border: 2px solid #696868;
     border-radius: 10%;
     background-color: #696868;
-    color: var(--buttons);
-    padding: 14px 28px;
-    font-size: 16px;
-    list-style-type: none;
+    text-decoration:none;color: white !important;
+    transition: none;
     
 }
 
+
 @media screen and (min-width: 850px) {
     .nav-toggle-label {
-        display: none;
-
-    
+    display: none;
 }
 
 header {
     display: grid;
     grid-template-columns: 1fr auto minmax() (600px, 3fr) 1fr;
+
+}
+
+header:hover {
+    background-color:var(--background);
 }
 
 
 .logo {
     grid-column: 1 / 2;
+    position: flex;
+    margin-top: 0;
+
 }
 
 nav {
     position: relative;
-    text-align: left;
+    text-align: right;
     transition: none;
     transform: scale(1,1);
     background: none;
@@ -206,15 +210,21 @@ nav {
 
 nav ul {
     display: flex;
-   
+    margin-top: 0;
+    padding: 0;
+    list-style: none;    
 }
+
 
 nav li {
     margin-left: 1em;
-    margin-right: 5em;
+    margin-right: 2em;
     margin-bottom: 0;
-
+    margin-top: 1em; /* or any other positive value */
+    display: flex;
+    position: relative;
 }
+
 
 nav a {
     opacity: 1;
@@ -225,7 +235,7 @@ nav a::before {
     content: '';
     display:block;
     height: 5px;
-    background: greenyellow;
+    background: var(--button_hover);
     position: absolute;
     top: -.75em;
     left: 0;
