@@ -1,10 +1,13 @@
 :root {
-    --background: rgba(9, 58, 62, 0.5);
-    --teal_colour: rgba(78, 166, 153, 0.75);
+    --cream: rgba(234, 210, 172);
+    --header_hover: rgba(234, 210, 172);
+    --dark_green: rgba(9, 58, 62, 1);
+    --teal_colour: rgba(78, 166, 153, 1);
     --buttons: black;
     --button_hover: #d64933;
+    --orange_red: #d64933;
     --username: "";
-
+    --wheat: rgba(234, 186, 107);
 }
 
 .content {
@@ -15,15 +18,28 @@
     display: grid;
     place-items: center;
     height: 720px;
-    z-index: -999;
+    z-index: -9999;
 }
 
 
 .intro_box  {
+    padding: 25px;
     background-color: rgba(214, 73, 51, 0.5);
-    position: absolute;
+    position: fixed;
     top: 150px;
-    right: auto;
-    float: right;
+    right: 50px;
+    z-index: 0;
+
+}
+
+.hiw_button {
+    position: absolute;
+    right: 1em;
+    color: white !important;
+    font-size: x-large;
+    border: var(--wheat);
+    background-color: var(--wheat);
+    text-decoration: none;
+    
 
 }

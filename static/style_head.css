@@ -1,8 +1,11 @@
 :root {
-    --background: rgba(9, 58, 62, 0.5);
-    --teal_colour: rgba(78, 166, 153, 0.75);
+    --cream: rgba(234, 210, 172);
+    --header_hover: rgba(234, 210, 172);
+    --dark_green: rgba(9, 58, 62, 1);
+    --teal_colour: rgba(78, 166, 153, 1);
     --buttons: black;
     --button_hover: #d64933;
+    --orange_red: #d64933;
     --username: "";
 
 }
@@ -20,7 +23,7 @@ body {
 }
 
 
-/* this may need removed if not using image in header screen
+/* this may need added to respective style sheet if using image on that page
 .content {
     height: 200vh;
     background-image: url("/static/main_cover.png"); 
@@ -35,12 +38,10 @@ body {
 /*navigation styles start here */
 
 header {
-    /* background: var(--background); */
     text-align: center;
     position: fixed;
     background-color: transparent;
     transition: var(--background) 400ms ease-in-out;
-    /*z-index: -999; */
     width: 100%;
 }
 
@@ -49,6 +50,7 @@ header {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 999;
 
 } 
     
@@ -78,6 +80,7 @@ header {
     width: 2em;
     border-radius: 2px;
     position: relative;
+    z-index: 999;
 
 }
 
@@ -102,7 +105,7 @@ header {
     right: 0;
     margin-right: 25px;
     margin-top: 25px;
-    z-index: 999;
+    z-index: 9999;
     display: none;
 }
 
@@ -110,13 +113,14 @@ header {
 nav {
     position: absolute;
     text-align: right;
-    top: 100%;                /*may need adjusted if doesnt line up*/
+    top: 100%;                
     left: 0;
-    background: var(--background);
+    background: var(--cream);
     width: 100%;
     transform: scale(1,0);
     transform-origin: top;
     transition: transform 400ms ease-in-out;
+    z-index: 99;
 } 
 
 nav ul {
@@ -124,6 +128,7 @@ nav ul {
     padding: 0;
     float: right;
     list-style: none;
+
  
 }
 
@@ -139,6 +144,7 @@ nav a {
     text-transform: uppercase;
     opacity: 0;
     transition: opacity 150ms ease-in-out;
+    z-index: 9;
 
 }
 
@@ -159,9 +165,11 @@ nav a:hover  {
 
 
 .login_button a {
-    border: 2px solid #696868;
+    border: 2px solid var(--teal_colour);
     border-radius: 10%;
-    background-color: #696868;
+    border-left-width: 20px;
+    border-right-width: 20px;
+    background-color: var(--teal_colour);
     text-decoration:none;color: white !important;
     transition: none;
     
@@ -180,7 +188,8 @@ header {
 }
 
 header:hover {
-    background-color:var(--background);
+    background-color:var(--header_hover);
+
 }
 
 
@@ -205,6 +214,7 @@ nav {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    
 }
 
 
@@ -212,7 +222,7 @@ nav ul {
     display: flex;
     margin-top: 0;
     padding: 0;
-    list-style: none;    
+    list-style: none; 
 }
 
 
@@ -220,7 +230,7 @@ nav li {
     margin-left: 1em;
     margin-right: 2em;
     margin-bottom: 0;
-    margin-top: 1em; /* or any other positive value */
+    margin-top: 1em;
     display: flex;
     position: relative;
 }
@@ -249,5 +259,3 @@ nav a:hover::before {
     transform: scale(1,1);
 }
 }   
-/* 
- D68C45 deep orange,  2C6E49 deep green, 4C956C slightly lighter green, FEFEE3 creamy colour, FFC9B9 muted pink  */
