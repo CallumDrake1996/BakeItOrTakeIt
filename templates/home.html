@@ -15,12 +15,20 @@
           <input type="checkbox" id="nav-toggle" class="nav-toggle">
           <nav>
             <ul>
-                <li><a href="{{ url_for('about') }}">Welcome</a></li>
+                {% if session.name %}
+                    <li><a href="{{ url_for('logout') }}">hi {{username['first_name']}}</a></li>
+                {% else %}       
+                    <li><a href="{{ url_for('about') }}">Welcome</a></li>
+                {% endif %}     
                 <li><a href="{{ url_for('about') }}">About</a></li>
                 <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
                 <li><a href="{{ url_for('shop') }}">Shop</a></li>
                 <li><a href="{{ url_for('contact_us') }}">Contact</a></li>
-                <li class="login_button"><a href="{{ url_for('login') }}">Login</a></li>
+                {% if session.name %}
+                    <li><a class= 'login_button' href="{{ url_for('logout') }}">Logout</a></li>  
+                {% else %}       
+                    <li><a class= 'login_button' href="{{ url_for('login') }}">Login</a></li>
+                {% endif %}      
             </ul>
           </nav>
           <label for="nav-toggle" class="nav-toggle-label"><span></span></label>

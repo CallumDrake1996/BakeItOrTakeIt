@@ -1,8 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_mysqldb import MySQL
 from flask_mail import Mail, Message
+from flask_session import Session
 import MySQLdb.cursors
 import MySQLdb.cursors, re, hashlib
+
+global username 
+username = ''
 # Route for handling the login page logic
 app = Flask(__name__)
 
@@ -27,57 +31,72 @@ mail = Mail(app)
 # Intialize MySQL
 mysql = MySQL(app)
 
+# session
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
+
+
+@app.route('/')
+def index():
+    return redirect(url_for('home'))
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    msg = ''
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+        global username 
+        username = request.form['username']
+        password = request.form['password']
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM Login WHERE username = %s AND password = %s', (username, password,))
+        account = cursor.fetchone()
+        if account:
+            session['name'] = request.form.get('username')
+            return redirect(url_for('home'))
+        else:
+            msg = 'Incorrect username/password!'
+    return render_template('LogIn.html', msg=msg)
+
+@app.route("/logout")
+def logout():
+    session["name"] = None
+    return redirect("/")
+
 @app.route('/home', methods=['GET', 'POST'])
 def home():
-    error = None
-    return render_template('home.html', error = error)
+    msg=''
+    global username
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('SELECT first_name FROM Login WHERE username = %s', (username,))
+    first_name = cursor.fetchone()
+    username = first_name
+    return render_template('home.html', msg = msg,username = username)
 
 @app.route('/SignUp', methods=['GET', 'POST'])
 def SignUp():
     msg = ''
-    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form and 'Firstname' in request.form and 'Lastname' in request.form:
         username = request.form['username']
         password = request.form['password']
+        firstname = request.form['Firstname']
+        lastname = request.form['Lastname']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM Login WHERE username = %s', (username,))
+        cursor.execute('SELECT * FROM Login WHERE username = %s', (username))
         account = cursor.fetchone()
         if account:
             msg = 'Account already exists!'
         elif not re.match(r'[A-Za-z0-9]+', username):
             msg = 'Username must contain only characters and numbers!'
-        elif not username or not password:
+        elif not username or not password or not firstname or not lastname:
             msg = 'Please fill out the form!'
         else:
-            cursor.execute('INSERT INTO Login (email, username, password) VALUES (%s,%s, %s)', (username, username, password,))
+            cursor.execute('INSERT INTO Login (email, username, password, first_name, last_name) VALUES (%s,%s, %s,%s,%s)', (username, username, password,firstname, lastname))
             mysql.connection.commit()
             msg = 'You have successfully registered!'
             return render_template('register.html', msg=msg)
     return render_template('register.html', msg=msg)
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    # Output a message if something goes wrong...
-    msg = ''
-    # Check if "username" and "password" POST requests exist (user submitted form)
-    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
-        # Create variables for easy access
-        username = request.form['username']
-        password = request.form['password']
-        # Check if account exists using MySQL
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM Login WHERE username = %s AND password = %s', (username, password,))
-        # Fetch one record and return result
-        account = cursor.fetchone()
-        # If account exists in accounts table in out database
-        if account:
-            # Create session data, we can access this data in other routes
-            session['loggedin'] = True            # Redirect to home page
-            return redirect(url_for('home'))
-        else:
-            # Account doesnt exist or username/password incorrect
-            msg = 'Incorrect username/password!'
-    # Show the login form with message (if any)
-    return render_template('LogIn.html', msg=msg)
 
 @app.route('/forgotPassword', methods=['GET', 'POST'])
 def forgotPass():
@@ -119,10 +138,6 @@ def recipes():
 @app.route('/shop')
 def shop():
     return render_template('shopping_cart.html')
-
-@app.route('/index')
-def index():
-    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
