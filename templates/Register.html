@@ -4,9 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign In Page</title>
-  <link rel="stylesheet" href="/static/LogIn.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/LogIn.css">
+  <link rel="icon" href="{{url_for('static',filename='logoicon.png' )}}" type="image/icon type">
+  <link rel="stylesheet" href="/static/style_head.css">
 </head>
+<header> 
+  <img src="{{url_for('static',filename='logo.png' )}}" height="80" alt = "logo" class= "logo">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle">
+  <nav>
+    <ul>
+      <li><a href="{{ url_for('home') }}">home</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
+      <li><a href="{{ url_for('shop') }}">Shop</a></li>
+      <li><a href="{{ url_for('contact_us') }}">Contact</a></li>
+      <li><a href="{{ url_for('login') }}"></a></li>
+      <!-- <li class="login_button"><a href="{{ url_for('login') }}">Login</a></li>            -->
+    </ul>
+    <ul>
+      <!-- <li class="login_button"><a href="{{ url_for('login') }}">Login</a></li> -->
+    </ul>
+  </nav>
+  <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+</header>
 <body>
   <section class="vh-100">
     <div class="container py-5 h-100">
@@ -18,14 +39,21 @@
               <h3 class="mb-5">Register Account</h3>
               <form action="{{ url_for('SignUp') }}" method="post" autocomplete="off">
                 <div class="form-outline mb-4">
-                  <form action="" method="post">
-                  <input class="form-control form-control-lg" type="text" placeholder="Username" name="username" 
+                  <input class="form-control form-control-lg" type="text" placeholder="Email" name="username" 
                   id= "username" required>
             
                   
-                  <label for="username">username</label>
+                  <label for="username">Email</label>
                 </div>
-    
+                <div class="row form-outline mb-4">
+                  <div class="col">
+                    <input class="form-control form-control-lg" type="text" placeholder="First" name="Firstname" id= "Firstname" required>
+                    <label for="username">First Name</label>
+                  </div>
+                  <div class="col">
+                    <input class="form-control form-control-lg" type="text" placeholder="Last" name="Lastname" id= "Lastname" required>
+                    <label for="username">Last Name</label></div>
+                </div>
                 <div class="form-outline mb-4">
                   <input type="password" id="password" class="form-control form-control-lg" name="password" placeholder="Password" required/>
                   <label for="password">Password</label>
@@ -37,8 +65,8 @@
 
                 <!-- Checkbox -->
                 <div>
-                  <a class="btn btn-primary btn-lg btn-block" href="{{ url_for('login') }}">Back</a>
-                  <button class="btn btn-primary btn-lg btn-block" type="submit" value="Register">Sign up</button>
+                  <a class="btn btn btn-info btn-lg btn-block" id='loginbtn'  href="{{ url_for('login') }}">Back</a>
+                  <button class="btn btn-info btn-lg btn-block" id='loginbtn' type="submit" value="Register">Sign up</button>
                 </div>
               </form>
 

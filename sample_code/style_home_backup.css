@@ -1,0 +1,146 @@
+:root {
+    --cream: rgba(234, 210, 172);
+    --header_hover: rgba(234, 210, 172);
+    --dark_green: rgba(9, 58, 62, 1);
+    --teal_colour: rgba(78, 166, 153, 1);
+    --buttons: black;
+    --button_hover: #d64933;
+    --orange_red: #d64933;
+    --username: "";
+    --wheat: rgba(234, 186, 107);
+}
+
+/* .content {
+    height: 200vh;
+    background-image: url("/static/main_cover.png"); 
+    background-blend-mode: multiply;
+    background-size: cover;
+    display: grid;
+    place-items: center;
+    height: 720px; */
+    /* z-index: -9 !important; 
+}*/
+
+   
+ 
+
+/* .container-fluid1 {
+    top: 150px;
+    position: flex;
+    right: 0;
+} */
+
+
+.hiw_button {
+    text-align: right;
+    margin-top: 10px;
+    
+}
+  
+.hiw_button a {
+    text-decoration: none;
+    color: #d64933; 
+    font-weight: bold;
+    font-size: large;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: blanchedalmond;
+    
+}
+
+
+  
+.bake_it {
+    padding: 2em;
+    font-weight: bold;
+    
+}
+
+.hiw {
+    padding: 1em;
+}
+
+.hiw img {
+    max-width: 100%; /* Ensure images fit within their containers */
+    padding: 20px; /* Add padding around the images */
+    display: block; /* Remove any default inline spacing */
+    margin: 0 auto; /* Center the images horizontally */
+}
+
+
+
+.custory {
+    padding: 2em;
+    font-weight: bold;
+
+}
+
+    /* Style for the carousel content container */
+.carousel-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: -1;
+
+}
+
+    /* Style for the carousel image */
+.carousel-content img {
+    max-width: 50%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    z-index: -2;
+}
+
+    /* Style for the carousel text */
+.carousel-text {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    z-index: -1;
+    
+}
+
+    /* Style for the carousel slide */
+.carousel-item {
+    display: flex;
+    justify-content: center;
+    z-index: -1;
+}
+
+
+   
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: black; 
+    color: white; /* Set the text color to white */
+    border-radius: 50%; /* Add rounded corners */
+    padding: 10px; 
+    z-index: -2;
+}
+
+    /* Style for the carousel control buttons on hover */
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: white; /* Change background color on hover */
+    color: black; /* Change text color on hover */
+    z-index: -2;
+}
+
+
+.aboutus img {
+    max-width: 100%; /* Ensure images fit within their containers */
+    padding: 20px; /* Add padding around the images */
+    display: block; /* Remove any default inline spacing */
+    margin: 0 auto; /* Center the images horizontally */
+}
+
+
+footer {
+    padding-top: 6em;    /*This is so text isnt lost under banner, can be removed or adjusted    depending on */
+} 
