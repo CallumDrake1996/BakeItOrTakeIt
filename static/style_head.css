@@ -53,6 +53,12 @@ header {
     z-index: 999;
 
 } 
+
+.logo1 {
+    background-color: rgba(0, 255, 21, 0.223);
+    border-radius: 100px;
+    padding-left: -5px;
+}
     
   
 .nav-toggle:focus ~ .nav-toggle-label {
