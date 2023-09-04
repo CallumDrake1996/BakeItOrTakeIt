@@ -63,6 +63,30 @@ header {
     border-radius: 100px;
     padding-left: -5px;
 }
+
+.cart_icon img{
+    height: 20px;
+    width: 20px;
+}
+
+
+.cart_icon {
+    position: relative;
+}
+
+.cart_count {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: red; 
+    color: white; 
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-size: 12px;
+}
+  
+
+
     
   
 .nav-toggle:focus ~ .nav-toggle-label {
