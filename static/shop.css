@@ -1,74 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
-<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300;400;500&display=swap');
 
-=======
->>>>>>> main
 
 .body1{
   padding-top: 100px;
 
 }
 
-<<<<<<< HEAD
 .cart-icon {
 margin-top: 17px;
 font-size: 24px;
 margin-right: 5px;}
 
-=======
->>>>>>> main
 body{
   background: url(/static/main_cover.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-<<<<<<< HEAD
   font-family: 'Merienda';
 
 }
 
 .card-body{
   /* height: 360px; */
-=======
-  font-family: 'Cookie', cursive;
-}
-
-.card-body{
-  height: 350px;
-  font-family: 'Cookie', cursive;
->>>>>>> main
 }
 
 .tiles{
   border-radius: 20px;
-<<<<<<< HEAD
   background-color: rgba(255, 255, 255);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
   font-family: 'Merienda';
-=======
-  background-color: rgba(0, 0, 0, 0.244);
->>>>>>> main
 }
 
 .icon{
   padding: 10px;
   max-width: 100%;
-<<<<<<< HEAD
   max-height: 200px;
-=======
-  max-height: 60%
->>>>>>> main
 }
 
 .btn{
   width: 90%;
   margin-bottom: 10px;
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 }
 
 .col-sm-3{
@@ -76,7 +49,6 @@ body{
   height: 400px;
 }
 
-<<<<<<< HEAD
 form{
   width: 320px;
 }
@@ -114,5 +86,3 @@ form{
 
 .closebtn:hover {
   color: black;}
-=======
->>>>>>> main
