@@ -1,0 +1,36 @@
+
+to add counter to cart icon
+
+                        {% if total_items > 0 %}
+                            <span class="total_items">{{ total_items }}</span>
+                        {% endif %}
+
+
+
+in Flask, needs variable
+Initialize the cart items count
+
+cart_items_count = 0
+
+
+
+@app.route('/shop', methods=['GET', 'POST'])
+def shop():
+    global cart_items_count
+
+    if request.method == 'POST':
+        # to add count from shopping cart form/database
+        cart_items_count += 1
+
+    return render_template('shop.html', cart_items_count=cart_items_count)
+
+
+
+    # in shop html  
+    <!-- Display the cart count in your template -->
+<p>Cart Items Count: {{ cart_items_count }}</p>
+
+<!-- Add a form to simulate adding items to the cart -->
+<form method="POST">
+    <button type="submit">Add to Cart</button>
+</form>

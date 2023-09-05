@@ -73,6 +73,9 @@ def home():
     username = first_name
     return render_template('home.html', msg = msg,username = username)
 
+
+
+
 @app.route('/SignUp', methods=['GET', 'POST'])
 def SignUp():
     msg = ''
@@ -123,6 +126,7 @@ def email():
    msg.body = "Hello Flask message sent from Flask-Mail"
    mail.send(msg)
    return "Sent"
+
  
 @app.route('/contact_us')
 def contact_us():
