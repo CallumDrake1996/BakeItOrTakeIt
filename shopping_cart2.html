@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Cart</title>
+    <!-- Add the Bootstrap CSS link here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add Font Awesome CSS for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="top-bar">
+        <div>
+            <i class="fas fa-shopping-cart cart-icon"></i>
+            <span class="cart-badge">{{ total_items }}</span>
+        </div>
+        <div>
+            <a href="/products" class="btn btn-light">Back to Products</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1 class="my-4">Shopping Cart</h1>
+        <form method="post" action="/update_cart">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="list-group">
+                        {% for item in cart_contents %}
+                            <div class="list-group-item cart-item">
+                                <div>
+                                    <h5 class="mb-1">{{ item['name'] }}</h5>
+                                    <p class="mb-1">Price: ${{ item['price'] }}</p>
+                                </div>
+                                <div>
+                                    <input type="number" class="form-control" name="quantity_{{ item['id'] }}" value="{{ item['quantity'] }}" min="1" step="1">
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Total Price:</h5>
+                            <p class="card-text">$<span id="total-price">{{ total_price }}</span></p>
+                            <div class="action-buttons">
+                                <div class="btn-container">
+                                    <button type="submit" class="btn btn-primary">Update Cart</button>
+                                </div>
+                                <div class="btn-container">
+                                    <a href="/clear_cart" class="btn btn-primary">Clear Cart</a>
+                                </div>
+                                <div class="btn-container">
+                                    <a href="/checkout" class="btn btn-primary">Checkout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Add the Bootstrap JS and jQuery libraries if not already included -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

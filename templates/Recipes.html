@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="{{url_for('static',filename='icon.css')}}">
   <link rel="stylesheet" href="{{url_for('static',filename='recipes.css')}}">
   <link rel="stylesheet" href="{{url_for('static',filename='style_head.css')}}">
   <link rel="icon" href="{{url_for('static',filename='logoicon.png' )}}" type="image/icon type">
+  <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}">
   <title>Recipes</title>
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 </head>
@@ -13,16 +16,23 @@
   <header> 
         <img src="{{url_for('static',filename='logo.png' )}}" height="80" alt = "logo" class= "logo">
         <input type="checkbox" id="nav-toggle" class="nav-toggle">
-        <nav>
-          <ul>
+        <ul>
+          {% if session.name %}
+          <li><a href="{{ url_for('logout') }}">hi {{username['first_name']}}</a></li>
+          <a href="{{url_for('cart')}}"><i class="fas fa-shopping-cart cart-icon"></i><span class="not">{{ total_items }}</span></a>
+          {% else %}       
               <li><a href="{{ url_for('about') }}">Welcome</a></li>
-              <li><a href="{{ url_for('home') }}">home</a></li>
-              <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
-              <li><a href="{{ url_for('shop') }}">Shop</a></li>
-              <li><a href="{{ url_for('contact_us') }}">Contact</a></li>
+          {% endif %}     
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
+          <li><a href="{{ url_for('shop') }}">Shop</a></li>
+          <li><a href="{{ url_for('contact_us') }}">Contact</a></li>
+          {% if session.name %}
+              <li class="login_button"><a href="{{ url_for('logout') }}">Logout</a></li>  
+          {% else %}       
               <li class="login_button"><a href="{{ url_for('login') }}">Login</a></li>
-          </ul>
-        </nav>
+          {% endif %}      
+        </ul>
         <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
   </header>
 </div>

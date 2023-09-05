@@ -1,38 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300;400;500&display=swap');
+
 
 .body1{
   padding-top: 100px;
 
 }
 
+.cart-icon {
+margin-top: 17px;
+font-size: 24px;
+margin-right: 5px;}
+
 body{
   background: url(/static/main_cover.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: 'Cookie', cursive;
+  font-family: 'Merienda';
+
 }
 
 .card-body{
-  height: 350px;
-  font-family: 'Cookie', cursive;
+  /* height: 360px; */
 }
 
 .tiles{
   border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.244);
+  background-color: rgba(255, 255, 255);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  font-family: 'Merienda';
 }
 
 .icon{
   padding: 10px;
   max-width: 100%;
-  max-height: 60%
+  max-height: 200px;
 }
 
 .btn{
   width: 90%;
   margin-bottom: 10px;
-
 }
 
 .col-sm-3{
@@ -40,3 +49,40 @@ body{
   height: 400px;
 }
 
+form{
+  width: 320px;
+}
+
+
+.img{
+  height: 200px;
+}
+
+.name{
+  height: 65px;
+}
+
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+}
+
+.alert.warning {background-color: #95df0dc3;}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;}
