@@ -29,9 +29,7 @@
                 <li class="cart_icon">
                     <a href="{{ url_for('shop') }}">
                         <img src="{{ url_for('static', filename='cart_icon.png') }}" alt="Cart Icon">
-                        <!-- {% if total_items > 0 %} -->
-                            <!-- <span class="total_items">{{ total_items }}</span> -->
-                        <!-- {% endif %} -->
+                        <!-- add icon counter info here -->
                     </a>
                 </li>
                 
@@ -51,7 +49,8 @@
         <div class="col-sm-3"></div>
             <div class="col-sm-9" class="intro_box" style="max-width: 750px; height: 400px; background-color: rgba(214, 73, 51, 0.5);"><h1> Create your own Masterpiece or get it Delivered!</h1>
             <p style="font-size: 20px;"><strong>Welcome  to  Take  It  Or  Bake  It.<br> We  invite  you  and  your  family  to  follow  along  with  one  of  our  tasty  recipes!<br><br> Sign  Up  today  to  get  notified  of  new  recipes  and  great  new  offers!</strong></p>
-            <p class="hiw_button"><a href="{{ url_for('about') }}">Discover more here!</a></p></div>
+            <p class="hiw_button"><a href="#scroll_hiw">Discover more here!</a></p>
+            </div>
             <div class="col-sm-0"></div>
         </div>
     </div>
@@ -70,13 +69,13 @@
 
 
 
-    <div class="hiw">
+    <div class="hiw" id="scroll_hiw">
         <h1>How It Works!</h1>
         <div class="container-fluid">
             <div class="row">
-              <div class="col-sm-4" style="background-color:rgb(21, 221, 47);"><img src="{{url_for('static',filename='image.png')}}"><br>insert text here</div>
-              <div class="col-sm-4" style="background-color:rgb(243, 7, 85);"><img src="{{url_for('static',filename='image.png')}}"><br>insert text here</div>
-              <div class="col-sm-4" style="background-color:rgb(14, 14, 235);"><img src="{{url_for('static',filename='image.png')}}"><br>insert text here</div>
+              <div class="col-sm-4" style="background-color:rgb(21, 221, 47);"><img src="{{url_for('static',filename='baking.jfif')}}"><br>insert text here</div>
+              <div class="col-sm-4" style="background-color:rgb(243, 7, 85);"><img src="{{url_for('static',filename='cookies.jfif')}}"><br>insert text here</div>
+              <div class="col-sm-4" style="background-color:rgb(14, 14, 235);"><img src="{{url_for('static',filename='delivery.jfif')}}"><br>insert text here</div>
             </div>
         </div>
         
@@ -159,7 +158,7 @@
 <div class="container-fluid">
     <div class="row">
       <div class="col-sm-9" style="background-color:rgb(21, 221, 47);"><h1>About Us</h1><br>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec non laoreet elit, non ornare elit. Pellentesque vitae leo ligula. Praesent in massa a turpis placerat vehicula. Ut nec.</div>
-      <div class="col-sm-3" style="background-color:rgb(243, 7, 85);"><img src="{{url_for('static',filename='image.png')}}"></div>
+      <div class="col-sm-3" style="background-color:rgb(243, 7, 85);"><img src="{{url_for('static',filename='cupcake.jfif')}}"></div>
     </div>
   </div>
 </div>
