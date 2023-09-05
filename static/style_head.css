@@ -63,6 +63,8 @@ header {
     border-radius: 100px;
     padding-left: -5px;
 }
+<<<<<<< HEAD
+=======
 
 .cart_icon img{
     height: 20px;
@@ -87,6 +89,7 @@ header {
   
 
 
+>>>>>>> main
     
   
 .nav-toggle:focus ~ .nav-toggle-label {
