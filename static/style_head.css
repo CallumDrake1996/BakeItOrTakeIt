@@ -42,21 +42,31 @@ header {
     position: fixed;
     background-color: transparent;
     transition: var(--background) 400ms ease-in-out;
+    transition: background-color 0.3; /*added for scrolling*/
+
     width: 100%;
+}
+
+.header.scrolled {
+    background-color: var(--header_hover);/*added for scrolling*/
 }
 
 
 .logo {
     position: absolute;
-    height: 90px;
-    top: 0;
+    height: 100px;
+    top: -20px;
     left: 0;
     z-index: 999;
     border-radius: 50%;
-    background-color: var(--teal_colour);
-    opacity: .75;
+
 
 } 
+
+.cart_icon img {
+    background-color: transparent;
+    height: 25px;
+}
 
 .logo1 {
     background-color: rgba(0, 255, 21, 0.223);
@@ -160,6 +170,8 @@ nav a:hover {
     color: var(--button_hover);
 }
 
+
+
 .nav-toggle-label {
     position: absolute;
     top: 0;
@@ -252,6 +264,7 @@ nav a:hover {
 header {
     display: grid;
     grid-template-columns: 1fr auto minmax() (600px, 3fr) 1fr;
+    transition: background-color 0.3; /*added for scrolling*/
 
 }
 
@@ -260,6 +273,9 @@ header:hover {
 
 }
 
+.header.scrolled {
+    background-color: var(--header_hover);/*added for scrolling*/
+}
 
 .logo {
     grid-column: 1 / 2;
