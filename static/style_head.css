@@ -42,7 +42,13 @@ header {
     position: fixed;
     background-color: transparent;
     transition: var(--background) 400ms ease-in-out;
+    transition: background-color 0.3; /*added for scrolling*/
+
     width: 100%;
+}
+
+.header.scrolled {
+    background-color: var(--header_hover);/*added for scrolling*/
 }
 
 
