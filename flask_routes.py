@@ -4,7 +4,6 @@ from flask_mail import Mail, Message
 from flask_session import Session
 import MySQLdb.cursors
 import MySQLdb.cursors, re, hashlib
-from flask_bcrypt import Bcrypt
 import math
 from flask import Flask,render_template,request,redirect,flash
 from flask import jsonify
@@ -59,12 +58,12 @@ app = Flask(__name__)
 
 # Change this to your secret key (it can be anything, it's for extra protection)
 app.secret_key = 'work'
-bcrypt = Bcrypt(app)
+
 
 # Enter your database connection details below
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'PASSWORD'
+app.config['MYSQL_PASSWORD'] = 'password'
 app.config['MYSQL_DB'] = 'MakeItOrTakeIt'
 
 # config mail

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="{{url_for('static',filename='style_head.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='style_home.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="icon" href="{{url_for('static',filename='logoicon.png' )}}" type="image/icon type">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BakeItorTakeIt</title>
+  </head>
+  <body>
+<div>
+    <header> 
+        <a href="{{ url_for('home') }}"><img src="{{url_for('static',filename='logo.png' )}}" alt = "logo" class= "logo">
+          <input type="checkbox" id="nav-toggle" class="nav-toggle">
+          <nav>
+            <ul>
+                {% if session.name %}
+                    <li><a href="{{ url_for('logout') }}">hi {{username['first_name']}}</a></li>
+                {% else %}       
+                    <li><a href="{{ url_for('about') }}">Welcome</a></li>
+                {% endif %}     
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('shop') }}">Products</a></li>               
+                <li><a href="{{ url_for('contact_us') }}">Contact</a></li>
+                <!-- <li class="cart_icon">
+                    <a href="{{ url_for('shop') }}">
+                        <img src="{{ url_for('static', filename='cart_icon.png') }}" alt="Cart Icon">
+                    </a>
+                </li> -->
+                
+                {% if session.name %}
+                    <li class="login_button"><a href="{{ url_for('logout') }}">Logout</a></li>  
+                {% else %}       
+                    <li class="login_button"><a href="{{ url_for('login') }}">Login</a></li>
+                {% endif %}      
+            </ul>
+          </nav>
+          <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+    </header>
+</div>    
+<div class="content">
+   <div class="container-fluid1">
+    <div class="row">
+        <div class="col-sm-3"></div>
+            <div class="col-sm-9" class="intro_box" style="max-width: 750px; height: 400px; background-color: rgba(214, 73, 51, 0.5);"><h1> Create your own Masterpiece or get it Delivered!</h1>
+            <p style="font-size: 20px;"><strong>Welcome  to  Take  It  Or  Bake  It.<br> We  invite  you  and  your  family  to  follow  along  with  one  of  our  tasty  recipes!<br><br> Sign  Up  today  to  get  notified  of  new  recipes  and  great  new  offers!</strong></p>
+            <p class="hiw_button"><a href="#scroll_hiw">Discover more here!</a></p>
+            </div>
+            <div class="col-sm-0"></div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+    <div class="bake_it">
+       <h1>Lets Bake It!</h1>
+       <p>Whether your tired of making the same old dinners or just want a new hobby teaching the kids some new skills. We have the pefrect solution for you. Why not bake? You put in a little work at the start, add a big dollop of love, you relax while you bake it, and the best bit. Your rewarded with a nice little treat (or big, the choice is yours) that you made yourself. Satisfaction at its best.</p>
+    
+</div>
+<br>
+<br>
+<br>
+
+
+
+    <div class="hiw" id="scroll_hiw">
+        <h1>How It Works!</h1>
+        <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-4"><img src="{{url_for('static',filename='baking.jfif')}}"><br><h3>Ingredients</h3><p>You can't bake without the ingredients. Find a recipe you want to make and gather the things you need, Something missing? Dont worry, we have you covered. Simply click on our products button and you can purchase all the ingredients we have conveniently gathered together for that item in one easy click</p></div>
+              <div class="col-sm-4"><img src="{{url_for('static',filename='cookies.jfif')}}"><br><h3>Lets Bake!</h3>Now that you have your ingredients, Its time to bake, you can follow the recipe by smashing the "Bake It" button of your desired choice on the products page and follow along. Videos coming soon!  </div>
+              <div class="col-sm-4"><img src="{{url_for('static',filename='delivery.jfif')}}"><br><h3>Just Take It!</h3><p>Sometimes life just gets in the way and we find ourselves with little time. This doesnt mean you cant enjoy some of its pleasures. Choose a ready made tray bake from our range and we will take care of the freshly cooking part. All you will need to do is grab your favourite beveridge to enjoy it with and relax</p></div>
+            </div>
+        </div>
+        
+
+
+</div>
+<br>
+<br>
+<br>
+    <div class="custory">
+        <H1>Our Customer Stories</H1>
+
+        <!-- <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="carousel-content">
+                        <img src="{{url_for('static',filename='image.png')}}" class="d-block w-100" alt="Image 1">
+                        <div class="carousel-caption">
+                            <div class="carousel-text">
+                                <h3>Slide 1</h3>
+                                <p>This is the first slide description.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-content">
+                        <img src="{{url_for('static',filename='image.png')}}" class="d-block w-100" alt="Image 2">
+                        <div class="carousel-caption">
+                            <div class="carousel-text">
+                                <h3>Slide 2</h3>
+                                <p>This is the second slide description.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-content">
+                        <img src="{{url_for('static',filename='image.png')}}" class="d-block w-100" alt="Image 2">
+                        <div class="carousel-caption">
+                            <div class="carousel-text">
+                                <h3>Slide 3</h3>
+                                <p>This is the third slide description.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-content">
+                        <img src="{{url_for('static',filename='image.png')}}" class="d-block w-100" alt="Image 2">
+                        <div class="carousel-caption">
+                            <div class="carousel-text">
+                                <h3>Slide 4</h3>
+                                <p>This is the fourth slide description.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div> -->
+                
+         
+    
+</div>
+<br>
+<br>
+<br>
+<div class="aboutus">
+
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-9" style="padding: 20px;"><h1>About Us</h1><br>We are a small team passionate about baking. Our mission is to have the rest of the world passionate about it also. Somtimes we have to start a little smaller than we would like though!<br> So here it is!. Great isn't it. Its our little sweet slice of whats to come. We will continuously add recipes and develop ways to make it easier for the world to join us in our passion - Lets get Baking!</div>
+      <div class="col-sm-3" style="height: 50px;"><img src="{{url_for('static',filename='cupcake.jpg')}}"></div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div>
+<footer><p>Footer / contact us here</p></footer></div>
+
+
+
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script> -->
+  
+</body>
+</html>

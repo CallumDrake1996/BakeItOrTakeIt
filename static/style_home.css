@@ -10,6 +10,27 @@
     --wheat: rgba(234, 186, 107);
 }
 
+body {
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    font-size: 1.125rem;
+    font-weight: 400;
+    font-style: normal;
+    color: #333;
+    line-height: 1.7;
+}
+
+.top {
+    text-align: center;
+    margin-left: 50%;
+    color: #d64933;
+}
+
+h1 {
+    text-align: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+}
+
 /* .content {
     height: 200vh;
     background-image: url("/static/main_cover.png"); 
@@ -58,13 +79,15 @@
 
 .hiw {
     padding: 1em;
+    text-align: center;
 }
 
 .hiw img {
-    max-width: 100%; /* Ensure images fit within their containers */
+    width: 300px; /* Ensure images fit within their containers */
+    height: 300px;
     padding: 20px; /* Add padding around the images */
     display: block; /* Remove any default inline spacing */
-    margin: 0 auto; /* Center the images horizontally */
+    margin: 10px auto; /* Center the images horizontally */
 }
 
 
