@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="{{url_for('static',filename='style_head.css')}}">
+<!-- above style sheet should be added to head, this is where the magic happens! -->
+<div>
+    <header class="header"> 
+        <a href="{{ url_for('home') }}">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="logo" class="logo">
+        </a>       
+          <input type="checkbox" id="nav-toggle" class="nav-toggle">
+          <nav>
+            <ul>
+                {% if session.name %}
+                <li><a href="{{ url_for('logout') }}">hi {{username['first_name']}}</a></li>
+                <li class="cart_icon"><a href="{{url_for('cart')}}"><img src="{{ url_for('static', filename='cart_icon.png') }}" alt="cart icon"><span class="ti">{{ total_items }}</span></a></li>
+                {% else %}       
+                    <li><a href="{{ url_for('home') }}">Welcome</a></li>
+                {% endif %}     
+                <li><a href="{{ url_for('home') }}#aboutus">About us</a></li>
+                <li><a href="{{ url_for('shop') }}">products</a></li>
+                <li><a href="{{ url_for('contact_us') }}">Contact</a></li>
+                {% if session.name %}
+                    <li class="login_button"><a href="{{ url_for('logout') }}">Logout</a></li>  
+                {% else %}       
+                    <li class="login_button"><a href="{{ url_for('login') }}">Login</a></li>
+                {% endif %}      
+            </ul>
+          </nav>
+          <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+    </header>
+  </div>    
+  <!--Above is header code, check links as may differ depending on page  -->
+  
+  <!-- Below script should be added at bottom of page to highlight nav bar when moves from top, if page is not large enough to scroll nothing will be seen -->
+  <script>
+    window.addEventListener('scroll', function() {
+        var header = document.querySelector('.header');
+        if (window.scrollY > 0) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+</script> 
+
+

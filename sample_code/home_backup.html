@@ -18,23 +18,19 @@
     <header class="header"> 
         <a href="{{ url_for('home') }}">
             <img src="{{ url_for('static', filename='logo.png') }}" alt="logo" class="logo">
-        </a>
-        
+        </a>       
           <input type="checkbox" id="nav-toggle" class="nav-toggle">
           <nav>
             <ul>
                 {% if session.name %}
                 <li><a href="{{ url_for('logout') }}">hi {{username['first_name']}}</a></li>
-                <a href="{{url_for('cart')}}"><i class="fas fa-shopping-cart cart-icon"></i><span class="not">{{ total_items }}</span></a>
+                <li class="cart_icon"><a href="{{url_for('cart')}}"><img src="{{ url_for('static', filename='cart_icon.png') }}" alt="cart icon"><span class="ti">{{ total_items }}</span></a></li>
                 {% else %}       
-                    <li><a href="{{ url_for('about') }}">Welcome</a></li>
+                    <li><a href="{{ url_for('home') }}">Welcome</a></li>
                 {% endif %}     
                 <li><a href="#aboutus">About us</a></li>
                 <li><a href="{{ url_for('shop') }}">products</a></li>
                 <li><a href="{{ url_for('contact_us') }}">Contact</a></li>
-                <li class="cart_icon"><a href="{{ url_for('shop') }}">
-                    <img src="{{ url_for('static', filename='cart_icon.png') }}" alt="cart icon">
-                </a></li>
                 {% if session.name %}
                     <li class="login_button"><a href="{{ url_for('logout') }}">Logout</a></li>  
                 {% else %}       
@@ -47,16 +43,17 @@
 </div>    
 <div class="content">
     <div class="container-fluid1">
-     <div class="row">
-         <div class="col-sm-3"></div>
-             <div class="col-sm-9" class="intro_box" style="max-width: 750px; height: 400px; background-color: rgba(214, 73, 51, 0.5);"><h1> Create your own Masterpiece or get it Delivered!</h1>
-             <p style="font-size: 20px;"><strong>Welcome  to  Take  It  Or  Bake  It.<br> We  invite  you  and  your  family  to  follow  along  with  one  of  our  tasty  recipes!<br><br> Sign  Up  today  to  get  notified  of  new  recipes  and  great  new  offers!</strong></p>
-             <p class="hiw_button"><a href="#hiw">Discover more here!</a></p>
-             </div>
-             <div class="col-sm-0"></div>
-         </div>
-     </div>
- </div>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-9 intro_box">
+                <h1>Create your own Masterpiece or get it Delivered!</h1>
+                <p>Welcome to Take It Or Bake It.<br> We invite you and your family to follow along with one of our tasty recipes!<br><br> Sign Up today to get notified of new recipes and great new offers!</p>
+                <p class="hiw_button"><a href="#hiw">Discover more here!</a></p>
+            </div>
+            <div class="col-sm-0"></div>
+        </div>
+    </div>
+</div>
  <br>
  <br>
  <br>

@@ -20,20 +20,21 @@
   <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}">
 </head>
 <div>
-  <header> 
-        <img class='logo1' src="{{url_for('static',filename='logo.png' )}}" height="80" alt = "logo" class= "logo">
+  <header class="header"> 
+      <a href="{{ url_for('home') }}">
+          <img src="{{ url_for('static', filename='logo.png') }}" alt="logo" class="logo">
+      </a>       
         <input type="checkbox" id="nav-toggle" class="nav-toggle">
         <nav>
           <ul>
               {% if session.name %}
               <li><a href="{{ url_for('logout') }}">hi {{username['first_name']}}</a></li>
-              <a href="{{url_for('cart')}}"><i class="fas fa-shopping-cart cart-icon"></i><span class="not">{{ total_items }}</span></a>
+              <li class="cart_icon"><a href="{{url_for('cart')}}"><img src="{{ url_for('static', filename='cart_icon.png') }}" alt="cart icon"><span class="ti">{{ total_items }}</span></a></li>
               {% else %}       
                   <li><a href="{{ url_for('about') }}">Welcome</a></li>
               {% endif %}     
-              <li><a href="{{ url_for('about') }}">About</a></li>
-              <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
-              <li><a href="{{ url_for('shop') }}">Shop</a></li>
+              <li><a href="{{ url_for('home') }}#aboutus">About us</a></li>
+              <li><a href="{{ url_for('shop') }}">products</a></li>
               <li><a href="{{ url_for('contact_us') }}">Contact</a></li>
               {% if session.name %}
                   <li class="login_button"><a href="{{ url_for('logout') }}">Logout</a></li>  
@@ -44,7 +45,7 @@
         </nav>
         <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
   </header>
-</div>
+</div>    
 
 <body>
 <div class="container">

@@ -8,7 +8,7 @@
     <link rel="icon" href="{{url_for('static',filename='logoicon.png' )}}" type="image/icon type">
     <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}">
     <link rel="stylesheet" href="{{url_for('static',filename='style_head.css')}}">
-     <link rel="stylesheet" href="{{url_for('static',filename='style_home.css')}}">
+     <!-- <link rel="stylesheet" href="{{url_for('static',filename='style_home.css')}}"> -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BakeItorTakeIt</title>
@@ -18,23 +18,19 @@
       <header class="header"> 
           <a href="{{ url_for('home') }}">
               <img src="{{ url_for('static', filename='logo.png') }}" alt="logo" class="logo">
-          </a>
-          
+          </a>       
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
             <nav>
               <ul>
                   {% if session.name %}
                   <li><a href="{{ url_for('logout') }}">hi {{username['first_name']}}</a></li>
-                  <a href="{{url_for('cart')}}"><i class="fas fa-shopping-cart cart-icon"></i><span class="not">{{ total_items }}</span></a>
+                  <li class="cart_icon"><a href="{{url_for('cart')}}"><img src="{{ url_for('static', filename='cart_icon.png') }}" alt="cart icon"><span class="ti">{{ total_items }}</span></a></li>
                   {% else %}       
                       <li><a href="{{ url_for('about') }}">Welcome</a></li>
                   {% endif %}     
-                  <li><a href="{{ url_for('about') }}">About</a></li>
+                  <li><a href="#aboutus">About us</a></li>
                   <li><a href="{{ url_for('shop') }}">products</a></li>
                   <li><a href="{{ url_for('contact_us') }}">Contact</a></li>
-                  <li class="cart_icon"><a href="{{ url_for('shop') }}">
-                      <img src="{{ url_for('static', filename='cart_icon.jpg') }}" alt="cart icon">
-                  </a></li>
                   {% if session.name %}
                       <li class="login_button"><a href="{{ url_for('logout') }}">Logout</a></li>  
                   {% else %}       
@@ -45,7 +41,7 @@
             <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
       </header>
   </div>    
-    <br>
+      <br>
   <br>
   <br>
   <br>

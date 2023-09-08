@@ -10,6 +10,10 @@
     --wheat: rgba(234, 186, 107);
 }
 
+body:has h1 {
+    margin-left: 2em;
+}
+
 body {
     font-family:Georgia, 'Times New Roman', Times, serif ;
     font-size: 1.125rem;
@@ -25,26 +29,33 @@ body {
     color: #d64933;
 }
 
+
+
 h1 {
     text-align: left;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 600;
 }
 
-/* .content {
-    height: 200vh;
-    background-image: url("/static/main_cover.png"); 
-    background-blend-mode: multiply;
-    background-size: cover;
-    display: grid;
-    place-items: center;
-    height: 720px; */
-    /* z-index: -9 !important; 
-}*/
+
+.col-sm-9.intro_box {
+    max-width: 800px;
+    height: 400px;
+    background-color: rgba(214, 73, 51, 0.5)
+}
+.col-sm-9.intro_box h1 {
+    text-align: right;
+}
+.col-sm-9.intro_box p {
+    text-align: left;
+    padding: 20px;
+    font-size: 20px;
+}
+
 
 
 .hiw_button {
-    text-align: right;
+    text-align: right !important;
     margin-top: 10px;
     
 }
@@ -63,7 +74,8 @@ h1 {
 
   
 .bake_it {
-    padding: 2em;
+    margin-left: 50px;
+    padding-top: 2em;
     font-weight: bold;
     
 }
@@ -81,6 +93,10 @@ h1 {
     margin: 10px auto; /* Center the images horizontally */
 }
 
+.hiw h1 {
+    padding-left: 50px;
+}
+
 
 .aboutus {
     padding-top: 4em;
@@ -89,10 +105,22 @@ h1 {
 
 
 .custory {
-    padding: 2em;
+    padding-top: 2em;
     font-weight: bold;
-
 }
+
+.custory h1 {
+    margin-left: 50px;
+}
+.aboutus {
+    padding-top: 2em;
+    text-align: center;
+}
+.aboutus h1 {
+    margin-left: 50px;
+}
+
+
 
     /* Style for the carousel content container */
 .carousel-content {
