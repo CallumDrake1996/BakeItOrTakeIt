@@ -1,0 +1,34 @@
+.Paymentbtn{
+  padding-top: 10px;
+}
+
+.paybtn{
+  background-color: white;
+}
+
+.vl {
+  border-left: 1px solid rgba(81, 81, 81, 0.198);
+  height: 40px;
+  margin-left: 20px;
+  padding-right: 20px;
+}
+
+.vl1{
+  border-left: 1px solid rgba(81, 81, 81, 0.198);
+  height: auto;
+  margin-left: 50px;
+  margin-right: -50px;
+}
+
+.leftside{
+  margin-left: 20px;
+}
+
+.housenumber{
+  margin-left: -12px;
+  margin-right: -12px;
+}
+
+.icon1{
+  margin-top: 10px;
+}

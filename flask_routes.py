@@ -128,6 +128,7 @@ def logout():
     cart_contents = []
     session["loggedin"] = False
     session["name"] = None
+    session['cart'] = []
     return redirect("/")
 
 
@@ -197,8 +198,11 @@ def contact_us():
         contact = request.form['message']
         msg = 'Email sent! Thank you we will be right on it :)'
         text_body = render_template('email_contact_us.html',email = email, message= contact)
+        text_body2 = render_template('email_contact_us.html',email = email, message= contact)
         text = Message(subject='contact us', html=text_body, sender =('BakeItOrTakeIt', 't43797192@gmail.com'), recipients = ['t43797192@gmail.com'])
+        text2 = Message(subject='contact us', html=text_body2, sender =('BakeItOrTakeIt', 't43797192@gmail.com'), recipients = [email])
         mail.send(text)
+        mail.send(text2)
     return render_template('contact_us.html', msg = msg, username = username, total_items=total_items)
 
 
