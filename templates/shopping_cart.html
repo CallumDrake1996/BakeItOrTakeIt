@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css"
+  rel="stylesheet">
+  <link rel="stylesheet" href="/static/cart.css">
   <link rel="stylesheet" href="contact.css">
   <title> Shopping cart </title>
   <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}">
@@ -11,6 +14,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="icon" href="{{url_for('static',filename='logoicon.png' )}}" type="image/icon type">
   <link rel="stylesheet" href="/static/LogIn.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">
+
 </head>
 <body>
   <div>
@@ -54,7 +60,7 @@
                             <div class="col align-self-center text-right text-muted">{{ total_items }} items</div>
                         </div>
                     </div>
-                   
+                    {% if session.cart %}
                     {% for item in session['cart']%}
                     <form method="post">
                         <hr>
@@ -75,6 +81,9 @@
                         </div>
                       </form>
                     {% endfor %}
+                    {% else %}
+                    <p>Empty Cart</p>
+                    {% endif %}
                     
                     <div>
                       <div class="back-to-shop">
@@ -99,7 +108,6 @@
                         <br>
                         <p>GIVE CODE</p>
                         <input id="code" placeholder="Enter your code">
-                        <div>{{msg}}</div>
                     </form>
                     <br>
                     <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
@@ -107,7 +115,116 @@
                         <div class="col text-right">&pound;{{total_price_delivery}}</div>
 
                     </div>
-                    <button class="btn btn-primary">CHECKOUT</button>
+                    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                      <div class="modal-dialog modal-xl modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalToggleLabel">Card Payment <img src="/static/visa-mastercard-logos.png" width="80px"></h5>
+                            <div class="vl"></div>
+                            <button class="btn paybtn btn-light" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal"><img src="/static/yK7EDD1.png" width="80px"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body row">
+                          <form action="post"></form>
+                            <div class="leftside col-5">
+                              <h4>Postal Address</h4>
+                              <br>
+                              <div class="row">
+                                <div class="col-6">
+                                  <div class="d-flex flex-column">
+                                  <p class="text mb-1">First Name</p>
+                                  <input class="form-control mb-3" type="text" placeholder="John">
+                                  </div>
+                                </div>
+                                <div class="col-6">
+                                  <div class="d-flex flex-column">
+                                  <p class="text mb-1">Last Name</p>
+                                  <input class="form-control mb-3" type="text" placeholder="Smith">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex flex-column">
+                                <p class="text mb-1">House Number And Street Name</p>
+                                <input class="form-control mb-3" type="text" placeholder="132 My Street" autocomplete="address-line1">
+                              </div>
+                              <div class="row">
+                                <div class="col-6">
+                                  <div class="d-flex flex-column">
+                                  <p class="text mb-1">City</p>
+                                  <input class="form-control mb-3" type="text" placeholder="London">
+                                  </div>
+                                </div>
+                                <div class="col-6">
+                                  <div class="d-flex flex-column">
+                                  <p class="text mb-1">Postcode</p>
+                                  <input class="form-control mb-3" type="text" placeholder="AB12 CD34" autocomplete="postal-code">
+                                  </div> 
+                                </div>                       
+                              </div>
+                            </div>
+                            <div class="vl1 col-1"></div>
+                            <div class="rightside col-5">
+                              <h4>Card Details</h4>
+                              <br>
+                              <div class="d-flex flex-column">
+                                <p class="text mb-1">Person Name</p>
+                                <input class="form-control mb-3" type="text" placeholder="Name" value="Jane Smith" autocomplete="name">
+                              </div>
+                              <div class="col-12">
+                                <div class="d-flex flex-column">
+                                <p class="text mb-1">Card Number</p>
+                                <div class="input-group">
+                                <input class="form-control mb-3" type="text" placeholder="1234 5678 435678" autocomplete="off">
+                                <div class="input-group-append"><i class="fab fa-cc-visa mx-1 icon1"></i> <i class="fab fa-cc-mastercard mx-1 icon1"></i> <i class="fab fa-cc-amex mx-1 icon1"></i> </span> </div>
+                                </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                              <div class="col-6">
+                                <div class="d-flex flex-column">
+                                <p class="text mb-1">Expiry</p>
+                                <input class="form-control mb-3" type="text" placeholder="MM/YYYY" autocomplete="cc-exp">
+                                </div>
+                              </div>
+                              <div class="col-6">
+                                <div class="d-flex flex-column">
+                                <p class="text mb-1">CVV/CVC</p>
+                                <input class="form-control mb-3 pt-2 " type="password" placeholder="***" autocomplete="off">
+                                </div>
+                              </div>
+                              </div>
+                            </div>
+                          </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button class="btn btn-primary"><i class="material-icons"></i> Pay &pound;{{total_price_delivery}}</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                      <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalToggleLabel2">PayPal</h5>
+                            <div class="vl"></div>
+                            <button class="btn btn-light" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Card Payment<img src="/static/visa-mastercard-logos.png" width="80px"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <h6 class="pb-2">Select your paypal account type</h6>
+                            <br>
+                            <div class="form-group "> <label class="radio-inline"> <input type="radio" name="optradio" checked> Domestic </label> <label class="radio-inline"> <input type="radio" name="optradio" class="ml-5">International </label></div>
+                            <br>
+                            <p> <button type="button" class="btn btn-primary "><i class="fab fa-paypal mr-2"></i> Log into my Paypal</button> </p>
+                            <p class="text-muted"> Note: After clicking on the button, you will be directed to a secure gateway for payment. After completing the payment process, you will be redirected back to the website to view details of your order. </p>
+                          </div>
+                          <div class="modal-footer">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <a class="btn btn-primary launch Paymentbtn" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Pay Now</a>
                 </div>
             </div>
             </div>
@@ -117,9 +234,7 @@
     </div>              
   </section>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
-</body>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -135,4 +250,13 @@
     });
 </script> 
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</body>
+ 
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"
+></script>
 </html>
