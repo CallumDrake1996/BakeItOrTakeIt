@@ -10,31 +10,53 @@
     --wheat: rgba(234, 186, 107);
 }
 
-/* .content {
-    height: 200vh;
-    background-image: url("/static/main_cover.png"); 
-    background-blend-mode: multiply;
-    background-size: cover;
-    display: grid;
-    place-items: center;
-    height: 720px; */
-    /* z-index: -9 !important; 
-}*/
+body:has h1 {
+    margin-left: 2em;
+}
 
-   
- 
+body {
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    font-size: 1.125rem;
+    font-weight: 400;
+    font-style: normal;
+    color: #333;
+    line-height: 1.7;
+}
 
-/* .container-fluid1 {
-    top: 150px;
-    position: flex;
-    right: 0;
-} */
+.top {
+    text-align: center;
+    margin-left: 50%;
+    color: #d64933;
+}
+
+
+
+h1 {
+    text-align: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+}
+
+
+.col-sm-9.intro_box {
+    max-width: 800px;
+    height: 400px;
+    background-color: rgba(214, 73, 51, 0.5)
+}
+.col-sm-9.intro_box h1 {
+    text-align: right;
+}
+
+.col-sm-9.intro_box p {
+    text-align: left;
+    padding: 20px;
+    font-size: 20px;
+}
 
 
 .hiw_button {
-    text-align: right;
-    margin-top: 10px;
-    
+    text-align: right !important;
+    margin-top: 10px;   
 }
   
 .hiw_button a {
@@ -42,38 +64,73 @@
     color: #d64933; 
     font-weight: bold;
     font-size: large;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
     background-color: blanchedalmond;
+    border-radius: 25%;
+    
     
 }
 
 
   
 .bake_it {
-    padding: 2em;
+    margin-left: 50px;
+    padding-top: 2em;
     font-weight: bold;
     
 }
 
 .hiw {
-    padding: 1em;
+    padding-top: 4em;
+    text-align: center;
+
 }
 
 .hiw img {
-    max-width: 100%; /* Ensure images fit within their containers */
+    width: 300px; /* Ensure images fit within their containers */
+    height: 300px;
     padding: 20px; /* Add padding around the images */
     display: block; /* Remove any default inline spacing */
-    margin: 0 auto; /* Center the images horizontally */
+    margin: 10px auto; /* Center the images horizontally */
+}
+
+.hiw h1 {
+    padding-left: 50px;
+}
+
+.hiw p {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+.aboutus {
+    padding-top: 4em;
 }
 
 
 
 .custory {
-    padding: 2em;
+    padding-top: 2em;
     font-weight: bold;
-
+    z-index: 0;
 }
+
+.custory h1 {
+    margin-left: 50px;
+}
+
+
+.aboutus {
+    padding-top: 2em;
+    text-align: center;
+}
+.aboutus h1 {
+    margin-left: 50px;
+}
+
+
 
     /* Style for the carousel content container */
 .carousel-content {

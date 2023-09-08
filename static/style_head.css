@@ -15,12 +15,7 @@
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    
-    font-family: sans-serif;
-    font-weight: 400;
-}
+
 
 
 /* this may need added/removed to respective style sheet if using image on that page */
@@ -42,28 +37,41 @@ header {
     position: fixed;
     background-color: transparent;
     transition: var(--background) 400ms ease-in-out;
+    transition: background-color 0.3; /*added for scrolling*/
     width: 100%;
+    z-index: 2;
+}
+
+.header.scrolled:hover {
+    background-color: var(--header_hover);
+    z-index: 4;
 }
 
 
 .logo {
     position: absolute;
-    height: 90px;
-    top: 0;
+    height: 100px;
+    top: -20px;
     left: 0;
     z-index: 999;
     border-radius: 50%;
-    background-color: var(--teal_colour);
-    opacity: .75;
-
 } 
 
-.logo1 {
-    background-color: rgba(0, 255, 21, 0.223);
-    border-radius: 100px;
-    padding-left: -5px;
+
+.cart_icon img {
+    height: 22px;
 }
-    
+.ti {
+    background-color: #ff0000; 
+    color: #ffffff;
+    padding: 1px 2px; 
+    border-radius: 50%; 
+    font-size: 12px;
+    position: relative;
+    bottom: -2;
+    right: 2px;
+}
+
   
 .nav-toggle:focus ~ .nav-toggle-label {
     outline: 3px solid rgba(lightblue, .75);
@@ -134,11 +142,17 @@ nav {
     z-index: 2;
 }
 
+nav.scrolled {
+    background-color: var(--header_hover);/*added for scrolling*/
+}
+
+
 nav ul {
     margin-top: 4em;
     padding: 0;
     list-style: none;
 }
+
 
 nav li {
     margin-top: 1em;
@@ -152,13 +166,12 @@ nav a {
     text-transform: uppercase;
     opacity: 1;
     transition: opacity 150ms ease-in-out;
+    z-index: 9 !important;
 }
 
-  
-
-nav a:hover {
+/* nav a:hover {
     color: var(--button_hover);
-}
+} */
 
 .nav-toggle-label {
     position: absolute;
@@ -173,6 +186,7 @@ nav a:hover {
 }
 
 
+
 .nav-toggle-label span,
 .nav-toggle-label span::before,
 .nav-toggle-label span::after {
@@ -184,13 +198,11 @@ nav a:hover {
     position: relative;
 }
 
-
 .nav-toggle-label span::before,
 .nav-toggle-label span::after {
     content: '';
     position: absolute;
 }
-
 
 .nav-toggle-label span::before {
     bottom: 7px;
@@ -252,6 +264,7 @@ nav a:hover {
 header {
     display: grid;
     grid-template-columns: 1fr auto minmax() (600px, 3fr) 1fr;
+    transition: background-color 0.3; /*added for scrolling*/
 
 }
 
@@ -260,13 +273,18 @@ header:hover {
 
 }
 
+.header.scrolled {
+    background-color: var(--header_hover);/*added for scrolling*/
+}
 
 .logo {
     grid-column: 1 / 2;
     position: flex;
     margin-top: 0;
-
 }
+
+
+
 
 nav {
     position: relative;
@@ -326,5 +344,16 @@ nav a::before {
 
 nav a:hover::before {
     transform: scale(1,1);
+}
+
+.ti {
+    background-color: #ff0000; 
+    color: #ffffff;
+    padding: 1px 2px; 
+    border-radius: 50%; 
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    right: -0.45em;
 }
 }   
