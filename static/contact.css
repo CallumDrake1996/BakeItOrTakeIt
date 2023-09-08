@@ -28,12 +28,19 @@ input[type=submit]:hover {
 
 /* Add a background color and some padding around the form */
 .container {
+  margin-top: 4em;
   border-radius: 9px;
   background-color: #f3f1eb;
-  padding: 20px;
+  padding: 5px;
 }
 
 .table-container {
   text-align: center; /* Horizontal centering */
   margin: 0 auto;     /* Center the container itself horizontally */
+}
+
+.table-container {
+  text-align: center; /* Center text horizontally */
+  margin: 0 auto; /* Center the container horizontally */
+  width: 13%; /* Adjust the width as needed */
 }
