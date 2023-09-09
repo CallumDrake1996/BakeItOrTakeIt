@@ -194,16 +194,17 @@ h1 {
 
 
 .aboutus img {
-    width: 400px; /* Ensure images fit within their containers */
-    padding: 20px; /* Add padding around the images */
+    width: 275px; 
+    padding: 20px;
     display: block; /* Remove any default inline spacing */
     margin: 0;
-    margin-bottom: 100px; /* Center the images horizontally */
+    margin-bottom: 100px; 
+    top: 0;
 }
 
 
 .bot_foot {
-    top margin-top: 150px;
+    margin-top: 150px;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -324,8 +325,4 @@ h1 {
     margin-left: 0;
     width: 100%;
     
-}
-
-.top a {
-    font-style: var(--button_hover);
 }
