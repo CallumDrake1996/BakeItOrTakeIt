@@ -1,3 +1,6 @@
+@import url(<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap');
+
 :root {
     --cream: rgba(234, 210, 172);
     --header_hover: rgba(234, 210, 172);
@@ -191,13 +194,135 @@ h1 {
 
 
 .aboutus img {
-    max-width: 100%; /* Ensure images fit within their containers */
-    padding: 20px; /* Add padding around the images */
+    width: 275px; 
+    padding: 20px;
     display: block; /* Remove any default inline spacing */
-    margin: 0 auto; /* Center the images horizontally */
+    margin: 0;
+    margin-bottom: 100px; 
+    top: 0;
 }
 
 
-footer {
-    padding-top: 6em;    /*This is so text isnt lost under banner, can be removed or adjusted    depending on */
-} 
+.bot_foot {
+    margin-top: 150px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #4EA699;
+    padding: 70px 0;
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+}
+
+.cont_foot {
+    max-width: 1170px;
+    background-color: #4EA699;
+    margin:auto;
+}
+
+.cont_row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bot_foot ul {
+    list-style: none;
+}
+
+.foot_col{
+    width: 25%;
+    padding: 0 15px;
+
+}
+
+.foot_col h4 {
+    font-size: 18px;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    position: relative;
+}
+
+.foot_col h4::before {
+    content: '';
+    position: absolute;
+    /* left: 0; */
+    bottom: -10px; 
+    background-color: #d64933;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.foot_col ul li:not(:last-child) {
+    margin-bottom: 10px;
+
+}    
+.foot_col ul li {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: blanchedalmond;
+    text-decoration: none;
+    font-weight: 300;
+    color: white;
+    display: block;
+    transition: all 0.3s ease;
+    
+}
+
+.foot_col a {
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.foot_col ul li a:hover {
+    color: white;
+    padding-left: 15px;
+
+}
+.foot_col ul li:hover {
+    color: white;
+    padding-left: 15px;
+
+}
+
+.social_links a{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-right: 10px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+}
+
+.social_links a:hover {
+    color: var(--button_hover);
+    background-color: var(--header_hover);
+}
+
+@media(max-width: 767px) {
+    .foot_col {
+        width: 50%;
+        margin-bottom: 30%;
+}
+}
+@media(max-width: 574px) {
+    .foot_col {
+        width: 100%;
+    
+}
+}
+
+
+.top {
+    
+    text-align: center;
+    background-color: var(--header_hover);
+    margin-left: 0;
+    width: 100%;
+    
+}
