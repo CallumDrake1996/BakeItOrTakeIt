@@ -21,30 +21,30 @@
 <body>
   <div>
     <header class="header"> 
-        <a href="{{ url_for('home') }}">
-            <img src="{{ url_for('static', filename='logo.png') }}" alt="logo" class="logo">
-        </a>       
-          <input type="checkbox" id="nav-toggle" class="nav-toggle">
-          <nav>
-            <ul>
-                {% if session.name %}
-                <li><a href="{{ url_for('logout') }}">hi {{username['first_name']}}</a></li>
-                <li class="cart_icon"><a href="{{url_for('cart')}}"><img src="{{ url_for('static', filename='cart_icon.png') }}" alt="cart icon"><span class="ti">{{ total_items }}</span></a></li>
-                {% else %}       
-                    <li><a href="{{ url_for('home') }}">Welcome</a></li>
-                {% endif %}     
-                <li><a href="{{ url_for('home') }}#aboutus">About us</a></li>
-                <li><a href="{{ url_for('shop') }}">products</a></li>
-                <li><a href="{{ url_for('contact_us') }}">Contact</a></li>
-                {% if session.name %}
-                    <li class="login_button"><a href="{{ url_for('logout') }}">Logout</a></li>  
-                {% else %}       
-                    <li class="login_button"><a href="{{ url_for('login') }}">Login</a></li>
-                {% endif %}      
-            </ul>
-          </nav>
-          <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
-    </header>
+      <a href="{{ url_for('home') }}">
+          <img src="{{ url_for('static', filename='logo.png') }}" alt="logo" class="logo">
+      </a>       
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <nav>
+          <ul>
+              {% if session.name %}
+              <li><a href="{{ url_for('myProfile') }}">hi {{name['first_name']}}</a></li>
+              <li class="cart_icon"><a href="{{url_for('cart')}}"><img src="{{ url_for('static', filename='cart_icon.png') }}" alt="cart icon"><span class="ti">{{ total_items }}</span></a></li>
+              {% else %}       
+                  <li><a href="{{ url_for('home') }}">Welcome</a></li>
+              {% endif %}     
+              <li><a href="#aboutus">About us</a></li>
+              <li><a href="{{ url_for('shop') }}">products</a></li>
+              <li><a href="{{ url_for('contact_us') }}">Contact</a></li>
+              {% if session.name %}
+                  <li class="login_button"><a href="{{ url_for('logout') }}">Logout</a></li>  
+              {% else %}       
+                  <li class="login_button"><a href="{{ url_for('login') }}">Login</a></li>
+              {% endif %}      
+          </ul>
+        </nav>
+        <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+  </header>
   </div>    
     <section class="vh-100">
     <div class="container py-5 h-100">
@@ -124,8 +124,8 @@
                             <button class="btn paybtn btn-light" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal"><img src="/static/yK7EDD1.png" width="80px"></button>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
-                          <div class="modal-body row">
-                          <form action="post"></form>
+                          <form action='{{url_for("checkout")}}' method="post">
+                           <div class="modal-body row">
                             <div class="leftside col-5">
                               <h4>Postal Address</h4>
                               <br>
@@ -133,31 +133,36 @@
                                 <div class="col-6">
                                   <div class="d-flex flex-column">
                                   <p class="text mb-1">First Name</p>
-                                  <input class="form-control mb-3" type="text" placeholder="John">
+                                  <input class="form-control mb-3" type="text" placeholder="John" name="Firstname" 
+                                  id= "Firstname" required>
                                   </div>
                                 </div>
                                 <div class="col-6">
                                   <div class="d-flex flex-column">
                                   <p class="text mb-1">Last Name</p>
-                                  <input class="form-control mb-3" type="text" placeholder="Smith">
+                                  <input class="form-control mb-3" type="text" placeholder="Smith" name="Lastname" 
+                                  id= "Lastname" required>
                                   </div>
                                 </div>
                               </div>
                               <div class="d-flex flex-column">
                                 <p class="text mb-1">House Number And Street Name</p>
-                                <input class="form-control mb-3" type="text" placeholder="132 My Street" autocomplete="address-line1">
+                                <input class="form-control mb-3" type="text" placeholder="132 My Street" autocomplete="address-line1" name="StreetName" 
+                                id= "StreetName" required>
                               </div>
                               <div class="row">
                                 <div class="col-6">
                                   <div class="d-flex flex-column">
                                   <p class="text mb-1">City</p>
-                                  <input class="form-control mb-3" type="text" placeholder="London">
+                                  <input class="form-control mb-3" type="text" placeholder="London" name="City" 
+                                  id= "City" required>
                                   </div>
                                 </div>
                                 <div class="col-6">
                                   <div class="d-flex flex-column">
                                   <p class="text mb-1">Postcode</p>
-                                  <input class="form-control mb-3" type="text" placeholder="AB12 CD34" autocomplete="postal-code">
+                                  <input class="form-control mb-3" type="text" placeholder="AB12 CD34" autocomplete="postal-code" name="Postcode" 
+                                  id= "Postcode" required>
                                   </div> 
                                 </div>                       
                               </div>
@@ -168,13 +173,15 @@
                               <br>
                               <div class="d-flex flex-column">
                                 <p class="text mb-1">Person Name</p>
-                                <input class="form-control mb-3" type="text" placeholder="Name" value="Jane Smith" autocomplete="name">
+                                <input class="form-control mb-3" type="text" placeholder="Jane Smith" value="" autocomplete="name" name="CardName" 
+                                id= "CardName" required>
                               </div>
                               <div class="col-12">
                                 <div class="d-flex flex-column">
                                 <p class="text mb-1">Card Number</p>
                                 <div class="input-group">
-                                <input class="form-control mb-3" type="text" placeholder="1234 5678 435678" autocomplete="off">
+                                <input class="form-control mb-3" type="text" placeholder="1234 5678 435678" autocomplete="off" name="CardNum" 
+                                id= "CardNum" required>
                                 <div class="input-group-append"><i class="fab fa-cc-visa mx-1 icon1"></i> <i class="fab fa-cc-mastercard mx-1 icon1"></i> <i class="fab fa-cc-amex mx-1 icon1"></i> </span> </div>
                                 </div>
                                 </div>
@@ -183,22 +190,23 @@
                               <div class="col-6">
                                 <div class="d-flex flex-column">
                                 <p class="text mb-1">Expiry</p>
-                                <input class="form-control mb-3" type="text" placeholder="MM/YYYY" autocomplete="cc-exp">
+                                <input class="form-control mb-3" type="text" placeholder="MM/YYYY" autocomplete="cc-exp" required>
                                 </div>
                               </div>
                               <div class="col-6">
                                 <div class="d-flex flex-column">
                                 <p class="text mb-1">CVV/CVC</p>
-                                <input class="form-control mb-3 pt-2 " type="password" placeholder="***" autocomplete="off">
+                                <input class="form-control mb-3 pt-2 " type="password" placeholder="***" autocomplete="off" required>
                                 </div>
                               </div>
                               </div>
                             </div>
-                          </form>
                           </div>
                           <div class="modal-footer">
-                            <button class="btn btn-primary"><i class="material-icons"></i> Pay &pound;{{total_price_delivery}}</button>
+
+                            <button class="btn btn-primary" type="submit"><i class="material-icons"></i> Pay &pound;{{total_price_delivery}}</button>
                           </div>
+                        </form>
                         </div>
                       </div>
                     </div>

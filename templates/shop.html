@@ -14,30 +14,30 @@
 </head>
 <div>
   <header class="header"> 
-      <a href="{{ url_for('home') }}">
-          <img src="{{ url_for('static', filename='logo.png') }}" alt="logo" class="logo">
-      </a>       
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
-        <nav>
-          <ul>
-              {% if session.name %}
-              <li><a href="{{ url_for('logout') }}">hi {{username['first_name']}}</a></li>
-              <li class="cart_icon"><a href="{{url_for('cart')}}"><img src="{{ url_for('static', filename='cart_icon.png') }}" alt="cart icon"><span class="ti">{{ total_items }}</span></a></li>
-              {% else %}       
-                  <li><a href="{{ url_for('home') }}">Welcome</a></li>
-              {% endif %}     
-              <li><a href="{{ url_for('home') }}#aboutus">About us</a></li>
-              <li><a href="{{ url_for('shop') }}">products</a></li>
-              <li><a href="{{ url_for('contact_us') }}">Contact</a></li>
-              {% if session.name %}
-                  <li class="login_button"><a href="{{ url_for('logout') }}">Logout</a></li>  
-              {% else %}       
-                  <li class="login_button"><a href="{{ url_for('login') }}">Login</a></li>
-              {% endif %}      
-          </ul>
-        </nav>
-        <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
-  </header>
+    <a href="{{ url_for('home') }}">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="logo" class="logo">
+    </a>       
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <nav>
+        <ul>
+            {% if session.name %}
+            <li><a href="{{ url_for('myProfile') }}">hi {{name['first_name']}}</a></li>
+            <li class="cart_icon"><a href="{{url_for('cart')}}"><img src="{{ url_for('static', filename='cart_icon.png') }}" alt="cart icon"><span class="ti">{{ total_items }}</span></a></li>
+            {% else %}       
+                <li><a href="{{ url_for('home') }}">Welcome</a></li>
+            {% endif %}     
+            <li><a href="#aboutus">About us</a></li>
+            <li><a href="{{ url_for('shop') }}">products</a></li>
+            <li><a href="{{ url_for('contact_us') }}">Contact</a></li>
+            {% if session.name %}
+                <li class="login_button"><a href="{{ url_for('logout') }}">Logout</a></li>  
+            {% else %}       
+                <li class="login_button"><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}      
+        </ul>
+      </nav>
+      <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+</header>
 </div>    
 <div class="container body1">
     {% for message in get_flashed_messages() %}
@@ -60,6 +60,7 @@
                       </div>
                         <h3 class="name">{{ product.name }}</h3>
                         <div>
+                          <a class="btn btn-primary" href= {{product.html}}>Bake It</a>
                           <input type="hidden" name="product_id" value="{{ product.id }}">
                           <button type="submit" class="btn btn-primary">Take It &pound;{{ product.price }}</button>
                         </div>
@@ -80,6 +81,7 @@
                       </div>
                         <h3 class="name">{{ product.name }}</h3>
                         <div>
+                          <a class="btn btn-primary" href= {{product.html}}>Bake It</a>
                           <button onclick="Alert()" class="btn btn-primary">Take It &pound;{{ product.price }}</button>
                         </div>
                     </div>

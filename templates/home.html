@@ -24,7 +24,7 @@
           <nav>
             <ul>
                 {% if session.name %}
-                <li><a href="{{ url_for('logout') }}">hi {{username['first_name']}}</a></li>
+                <li><a href="{{ url_for('myProfile') }}">hi {{name['first_name']}}</a></li>
                 <li class="cart_icon"><a href="{{url_for('cart')}}"><img src="{{ url_for('static', filename='cart_icon.png') }}" alt="cart icon"><span class="ti">{{ total_items }}</span></a></li>
                 {% else %}       
                     <li><a href="{{ url_for('home') }}">Welcome</a></li>
