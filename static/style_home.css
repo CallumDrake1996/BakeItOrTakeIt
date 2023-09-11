@@ -135,7 +135,7 @@ h1 {
 
 
 
-    /* Style for the carousel content container */
+   
 .carousel-content {
     display: flex;
     flex-direction: column;
@@ -145,19 +145,21 @@ h1 {
 
 }
 
-    /* Style for the carousel image */
+   
 .carousel-content img {
     max-width: 50%;
-    height: auto;
+    height: 350px;
     border-radius: 8px;
     margin-bottom: 10px;
+    margin-top: 60px;
     z-index: -2;
 }
 
-    /* Style for the carousel text */
+    
 .carousel-text {
     background-color: rgba(0, 0, 0, 0.7);
     padding: 10px;
+    border-top: 300px;
     border-radius: 8px;
     color: white;
     z-index: -1;
@@ -178,25 +180,25 @@ h1 {
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-color: black; 
-    color: white; /* Set the text color to white */
-    border-radius: 50%; /* Add rounded corners */
+    color: white; 
+    border-radius: 50%; 
     padding: 10px; 
     z-index: -2;
 }
 
-    /* Style for the carousel control buttons on hover */
+   
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
-    background-color: white; /* Change background color on hover */
-    color: black; /* Change text color on hover */
+    background-color: white; 
     z-index: -2;
 }
 
 
 .aboutus img {
-    width: 275px; 
+    width: 275px;
+    height: auto; 
     padding: 20px;
-    display: block; /* Remove any default inline spacing */
+    display: block; /* Removes any default inline spacing */
     margin: 0;
     margin-bottom: 100px; 
     top: 0;

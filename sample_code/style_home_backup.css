@@ -1,3 +1,6 @@
+@import url(<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap');
+
 :root {
     --cream: rgba(234, 210, 172);
     --header_hover: rgba(234, 210, 172);
@@ -8,6 +11,10 @@
     --orange_red: #d64933;
     --username: "";
     --wheat: rgba(234, 186, 107);
+}
+
+body:has h1 {
+    margin-left: 2em;
 }
 
 body {
@@ -25,28 +32,34 @@ body {
     color: #d64933;
 }
 
+
+
 h1 {
     text-align: left;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 600;
 }
 
-/* .content {
-    height: 200vh;
-    background-image: url("/static/main_cover.png"); 
-    background-blend-mode: multiply;
-    background-size: cover;
-    display: grid;
-    place-items: center;
-    height: 720px; */
-    /* z-index: -9 !important; 
-}*/
+
+.col-sm-9.intro_box {
+    max-width: 800px;
+    height: 400px;
+    background-color: rgba(214, 73, 51, 0.5)
+}
+.col-sm-9.intro_box h1 {
+    text-align: right;
+}
+
+.col-sm-9.intro_box p {
+    text-align: left;
+    padding: 20px;
+    font-size: 20px;
+}
 
 
 .hiw_button {
-    text-align: right;
-    margin-top: 10px;
-    
+    text-align: right !important;
+    margin-top: 10px;   
 }
   
 .hiw_button a {
@@ -54,16 +67,19 @@ h1 {
     color: #d64933; 
     font-weight: bold;
     font-size: large;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
     background-color: blanchedalmond;
+    border-radius: 25%;
+    
     
 }
 
 
   
 .bake_it {
-    padding: 2em;
+    margin-left: 50px;
+    padding-top: 2em;
     font-weight: bold;
     
 }
@@ -71,6 +87,7 @@ h1 {
 .hiw {
     padding-top: 4em;
     text-align: center;
+
 }
 
 .hiw img {
@@ -81,6 +98,15 @@ h1 {
     margin: 10px auto; /* Center the images horizontally */
 }
 
+.hiw h1 {
+    padding-left: 50px;
+}
+
+.hiw p {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 
 .aboutus {
     padding-top: 4em;
@@ -89,12 +115,27 @@ h1 {
 
 
 .custory {
-    padding: 2em;
+    padding-top: 2em;
     font-weight: bold;
-
+    z-index: 0;
 }
 
-    /* Style for the carousel content container */
+.custory h1 {
+    margin-left: 50px;
+}
+
+
+.aboutus {
+    padding-top: 2em;
+    text-align: center;
+}
+.aboutus h1 {
+    margin-left: 50px;
+}
+
+
+
+   
 .carousel-content {
     display: flex;
     flex-direction: column;
@@ -104,19 +145,21 @@ h1 {
 
 }
 
-    /* Style for the carousel image */
+   
 .carousel-content img {
     max-width: 50%;
-    height: auto;
+    height: 350px;
     border-radius: 8px;
     margin-bottom: 10px;
+    margin-top: 60px;
     z-index: -2;
 }
 
-    /* Style for the carousel text */
+    
 .carousel-text {
     background-color: rgba(0, 0, 0, 0.7);
     padding: 10px;
+    border-top: 300px;
     border-radius: 8px;
     color: white;
     z-index: -1;
@@ -137,29 +180,151 @@ h1 {
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-color: black; 
-    color: white; /* Set the text color to white */
-    border-radius: 50%; /* Add rounded corners */
+    color: white; 
+    border-radius: 50%; 
     padding: 10px; 
     z-index: -2;
 }
 
-    /* Style for the carousel control buttons on hover */
+   
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
-    background-color: white; /* Change background color on hover */
-    color: black; /* Change text color on hover */
+    background-color: white; 
     z-index: -2;
 }
 
 
 .aboutus img {
-    max-width: 100%; /* Ensure images fit within their containers */
-    padding: 20px; /* Add padding around the images */
-    display: block; /* Remove any default inline spacing */
-    margin: 0 auto; /* Center the images horizontally */
+    width: 275px;
+    height: auto; 
+    padding: 20px;
+    display: block; /* Removes any default inline spacing */
+    margin: 0;
+    margin-bottom: 100px; 
+    top: 0;
 }
 
 
-footer {
-    padding-top: 6em;    /*This is so text isnt lost under banner, can be removed or adjusted    depending on */
-} 
+.bot_foot {
+    margin-top: 150px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #4EA699;
+    padding: 70px 0;
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+}
+
+.cont_foot {
+    max-width: 1170px;
+    background-color: #4EA699;
+    margin:auto;
+}
+
+.cont_row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bot_foot ul {
+    list-style: none;
+}
+
+.foot_col{
+    width: 25%;
+    padding: 0 15px;
+
+}
+
+.foot_col h4 {
+    font-size: 18px;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    position: relative;
+}
+
+.foot_col h4::before {
+    content: '';
+    position: absolute;
+    /* left: 0; */
+    bottom: -10px; 
+    background-color: #d64933;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.foot_col ul li:not(:last-child) {
+    margin-bottom: 10px;
+
+}    
+.foot_col ul li {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: blanchedalmond;
+    text-decoration: none;
+    font-weight: 300;
+    color: white;
+    display: block;
+    transition: all 0.3s ease;
+    
+}
+
+.foot_col a {
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.foot_col ul li a:hover {
+    color: white;
+    padding-left: 15px;
+
+}
+.foot_col ul li:hover {
+    color: white;
+    padding-left: 15px;
+
+}
+
+.social_links a{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-right: 10px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+}
+
+.social_links a:hover {
+    color: var(--button_hover);
+    background-color: var(--header_hover);
+}
+
+@media(max-width: 767px) {
+    .foot_col {
+        width: 50%;
+        margin-bottom: 30%;
+}
+}
+@media(max-width: 574px) {
+    .foot_col {
+        width: 100%;
+    
+}
+}
+
+
+.top {
+    
+    text-align: center;
+    background-color: var(--header_hover);
+    margin-left: 0;
+    width: 100%;
+    
+}
