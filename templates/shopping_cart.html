@@ -62,7 +62,7 @@
                     </div>
                     {% if session.cart %}
                     {% for item in session['cart']%}
-                    <form method="post">
+                    <form method="post" action="/update_cart">
                         <hr>
                         <div class="group-item cart-item row">
                           <div class="col-1">
@@ -76,7 +76,7 @@
                             <input type="number" class="form-control" name="quantity_{{ item['id'] }}" value="{{ item['quantity'] }}" min="1" step="1">
                           </div>
                           <div class="col-1">
-                            <button type="submit" class="btn btn-outline-secondary">&cross;</button>
+                            <a href="/shop/remove/{{item['id']}}">&cross;</a>
                           </div>
                         </div>
                       </form>
@@ -87,7 +87,8 @@
                     
                     <div>
                       <div class="back-to-shop">
-                        <a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span>
+                        <a href="{{url_for('shop')}}">&leftarrow;</a><span class="text-muted">Back to shop</span>
+                        <a href="/update_cart">Update Cart</a>
                       </div>
                     </div>
                 </div>
@@ -232,7 +233,13 @@
                         </div>
                       </div>
                     </div>
+                    {%if session.cart%}
+                    <a class="btn btn-primary launch Paymentbtn" href="{{url_for('clear_cart')}}">Clear Cart</a>
                     <a class="btn btn-primary launch Paymentbtn" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Pay Now</a>
+                    {%else%}
+                    <button type="button" class="btn btn-primary launch Paymentbtn" disabled>Clear Cart</button>
+                    <button type="button" class="btn btn-primary launch Paymentbtn" disabled>Pay Now</button>
+                    {%endif%}
                 </div>
             </div>
             </div>

@@ -30,7 +30,6 @@ name2 = 'NA'
 idNum = 0
 
 
-
 cart_contents = []
 products = [
     {"id": 1, "name": "Bakewell tart", "price": 11.50, 'image': '/static/recipe_img/Bakewell.jpeg', 'html':'BakewellTart' },
@@ -130,7 +129,7 @@ def logout():
     global cart_contents
     global log
     global idNum
-    global client
+    global password
     log = 0
     username = 'no'
     total_price = 0
@@ -139,6 +138,7 @@ def logout():
     session["loggedin"] = False
     session["name"] = None
     session['cart'] = []
+    session.modified=True
     idNum = 0
     password= ''
     return redirect("/")
@@ -252,9 +252,9 @@ def checkout():
         session.modified = True
     return render_template('checkout.html', name= name, total_price = format(basket_amount, '.2f'), total_price_delivery =  format(basket_amount_delivery, '.2f'), total_items=total_items, firstname=firstname, lastname=lastname, streetname=streetname, postcode=postcode,  city=city, orderNum= orderNum)
 
-# @app.errorhandler(404)
-# def page_not_found(e):
-#     return render_template('404.html'), 404
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 @app.route('/myprofile')
 def myProfile():
@@ -316,33 +316,23 @@ def add_to_cart(product_id):
             session.modified = True
     return redirect(url_for('totalitems'))
 
-@app.route('/shop/remove/<int:product_id>', methods=['POST'])
+@app.route('/shop/remove/<int:product_id>', methods=['POST,', 'GET'])
 def remove_from_cart(product_id):
+    global cart_contents
+    for item in cart_contents:
+        if item['id'] == product_id:
+            cart_contents.remove(item)
+            session['cart'] = cart_contents
+            session.modified = True
+            return redirect(url_for('cart'))
     return redirect(url_for('cart'))
 
 @app.route('/clear_cart')
 def clear_cart():
     global cart_contents
     cart_contents = []  # Clear the cart by setting it to an empty list
-    return redirect(url_for('cart'))
-
-@app.route('/update_cart', methods=['POST', 'GET'])
-def update_cart():
-    global cart_contents
-
-    for item in cart_contents:
-        product_id = item['id']
-        quantity_key = f'quantity_{product_id}'
-        new_quantity = request.form.get(quantity_key, 0)
-        
-        # Ensure the new_quantity is an integer
-        try:
-            new_quantity = int(new_quantity)
-        except ValueError:
-            new_quantity = 0
-
-        # Update the quantity in the cart
-        item['quantity'] = new_quantity
+    session['cart'] = []
+    session.modified=True
     return redirect(url_for('cart'))
 
 @app.route('/BakewellTart')
