@@ -108,14 +108,9 @@ h1 {
 }
 
 
-.aboutus {
-    padding-top: 4em;
-}
-
-
 
 .custory {
-    padding-top: 2em;
+    padding-top: 3em;
     font-weight: bold;
     z-index: 0;
 }
@@ -126,7 +121,7 @@ h1 {
 
 
 .aboutus {
-    padding-top: 2em;
+    padding-top: 3em;
     text-align: center;
 }
 .aboutus h1 {

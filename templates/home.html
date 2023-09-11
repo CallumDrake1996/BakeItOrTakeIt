@@ -86,7 +86,7 @@
 <br>
 <br>
 <br>
-    <div class="custory">
+    <div class="custory" id="custory">
         <H1>Our Customer Stories</H1>
 
         <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -180,40 +180,40 @@
             <div class="foot_col">
                 <h4>company</h4>
                 <ul>
-                    <li><a href="#"></a>about us</li>
-                    <li><a href="#"></a>our services</li>
-                    <li><a href="#"></a>privacy policy</li>
-                    <li><a href="#"></a>affiliate program</li>
+                    <li><a href="#aboutus">about us</a></li>
+                    <li><a href="#hiw">our services</a></li>
+                    <li><a href="{{ url_for('contact_us') }}">privacy policy</a></li>
+                    <li><a href="{{ url_for('contact_us') }}">affiliate program</a></li>
                 </ul>
             </div>
         
             <div class="foot_col">
                 <h4>gethelp</h4>
                 <ul>
-                    <li><a href="#"></a>FAQ</li>
-                    <li><a href="#"></a>shipping</li>
-                    <li><a href="#"></a>returns</li>
-                    <li><a href="#"></a>order status</li>
-                    <li><a href="#"></a>payment options</li>
+                    <li><a href="{{ url_for('contact_us') }}">FAQ</a></li>
+                    <li><a href="{{ url_for('contact_us') }}">shipping</a></li>
+                    <li><a href="{{ url_for('contact_us') }}">returns</a></li>
+                    <li><a href="{{ url_for('contact_us') }}">order status</a></li>
+                    <li><a href="{{ url_for('contact_us') }}">payment options</a></li>
                 </ul>
             </div>
     
             <div class="foot_col">
                 <h4>online shop</h4>
                 <ul>
-                    <li><a href="#">cake</a></li>
-                    <li><a href="#">bread</a></li>
-                    <li><a href="#">sweet</a></li>
-                    <li><a href="#">savoury</a></li>
+                    <li><a href="{{ url_for('shop') }}">cake</a></li>
+                    <li><a href="{{ url_for('shop') }}">bread</a></li>
+                    <li><a href="{{ url_for('shop') }}">sweet</a></li>
+                    <li><a href="{{ url_for('shop') }}">savoury</a></li>
                 </ul>
             </div>
             <div class="foot_col">
                 <h4>follow us</h4>
                 <div class="social_links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/welovebaking/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/i/topics/846772834588229632"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/baking/"><i class="fab fa-instagram"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                 </div>
             </div>
         </div>
