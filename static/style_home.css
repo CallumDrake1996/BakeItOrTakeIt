@@ -83,13 +83,13 @@ h1 {
   
 .bake_it {
     margin-left: 50px;
-    padding-top: 2em;
+    padding-top: 1px;
     font-weight: 500;
     
 }
 
 .hiw {
-    padding-top: 4em;
+    padding-top: 1em;
     text-align: center;
 
 }
@@ -209,7 +209,7 @@ h1 {
 
 
 .bot_foot {
-    margin-top: 150px;
+    margin-top: 100px;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
