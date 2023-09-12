@@ -71,7 +71,7 @@ app.secret_key = 'work'
 # Enter your database connection details below
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'password'
+app.config['MYSQL_PASSWORD'] = 'PASSWORD'
 app.config['MYSQL_DB'] = 'MakeItOrTakeIt'
 
 # config mail
@@ -112,8 +112,6 @@ def login():
         cursor.execute('SELECT * FROM Login WHERE username = %s AND password = %s', (username, password,))
         account = cursor.fetchone()
         session['loggedin'] = True
-        global log
-        log = 1
         if account:
             session['name'] = request.form.get('username')
             return redirect(url_for('home'))
