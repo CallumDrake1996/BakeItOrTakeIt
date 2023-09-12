@@ -11,9 +11,9 @@
 
 section.testcard {
     /* background: linear-gradient(to bottom, #eaba6b, #ead2ac); */
-    background: linear-gradient(to bottom, #eaba6b, #ead2ac);
-    animation: background-color 20s;
-    min-height: 75vh;
+    background: white
+    animation: background-color 0s;
+    min-height: 400px;
 }
 
 /* @keyframes background-color {
@@ -36,13 +36,13 @@ section.testcard {
 }   */
 
 .testcontainer {
-    margin-top: 80px;
+    margin-top: 40px;
 }
 
 .testcontainer .col-lg-3 {
     display: flex;
     justify-content: center;
-    margin-top: 150px;
+    margin-top: 25px;
 }
 
 .tcard {
@@ -50,8 +50,10 @@ section.testcard {
     height: 300px;
     transform-style: preserve-3d;
     perspective: 500px;
-    border: none;
-    background-color: linear-gradient(to bottom, #eaba6b, #ead2ac);
+    border:none;
+    
+    background-color: #4ea699;
+    /* background-color: linear-gradient(to bottom, #eaba6b, #ead2ac); */
 
 }
 

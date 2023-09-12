@@ -29,7 +29,7 @@ body {
 .top {
     text-align: center;
     margin-left: 50%;
-    color: #d64933;
+    color: white;
 }
 
 
@@ -46,20 +46,22 @@ h1 {
     height: 400px;
     background-color: rgba(214, 73, 51, 0.5)
 }
-.col-sm-9.intro_box h1 {
+.col-sm-9.intro_box h2 {
     text-align: right;
+    font-weight: 800;
 }
 
 .col-sm-9.intro_box p {
     text-align: left;
     padding: 20px;
     font-size: 20px;
+    font-weight: 500;
 }
 
 
 .hiw_button {
     text-align: right !important;
-    margin-top: 10px;   
+    margin-top: 0px;   
 }
   
 .hiw_button a {
@@ -75,12 +77,14 @@ h1 {
     
 }
 
-
+.bake_it h1{
+    font-weight: 800;
+}
   
 .bake_it {
     margin-left: 50px;
     padding-top: 2em;
-    font-weight: bold;
+    font-weight: 500;
     
 }
 
@@ -89,6 +93,7 @@ h1 {
     text-align: center;
 
 }
+
 
 .hiw img {
     width: 300px; /* Ensure images fit within their containers */
@@ -100,6 +105,7 @@ h1 {
 
 .hiw h1 {
     padding-left: 50px;
+    font-weight: 800;
 }
 
 .hiw p {
@@ -117,15 +123,17 @@ h1 {
 
 .custory h1 {
     margin-left: 50px;
+    font-weight: 800;
 }
 
 
 .aboutus {
-    padding-top: 3em;
-    text-align: center;
+    padding-top: 1em;
+    text-align: left;
 }
 .aboutus h1 {
     margin-left: 50px;
+    font-weight: 800;
 }
 
 
@@ -237,8 +245,9 @@ h1 {
     text-transform: capitalize;
     margin-bottom: 30px;
     font-family: 'Poppins', sans-serif;
-    font-weight: 500;
+    font-weight: 900;
     position: relative;
+    left: 32px;
 }
 
 .foot_col h4::before {
@@ -271,6 +280,7 @@ h1 {
 .foot_col a {
     color: white;
     transition: all 0.3s ease;
+
 }
 
 .foot_col ul li a:hover {
@@ -318,7 +328,7 @@ h1 {
 .top {
     
     text-align: center;
-    background-color: var(--header_hover);
+    background-color: #4ea699;
     margin-left: 0;
     width: 100%;
     
