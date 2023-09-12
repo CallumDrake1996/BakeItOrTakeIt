@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="{{url_for('static',filename='style_head.css')}}">
     <link rel="stylesheet" href="{{url_for('static',filename='style_home.css')}}">
-    <link rel="stylesheet" href="{{url_for('static',filename='scrollbar.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='testimonial.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="icon" href="{{url_for('static',filename='logoicon.png' )}}" type="image/icon type">
@@ -48,7 +48,7 @@
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-9 intro_box">
-                <h1>Create your own Masterpiece or get it Delivered!</h1>
+                <h2>Create your own Masterpiece or get it Delivered!</h2>
                 <p>Welcome to Take It Or Bake It.<br> We invite you and your family to follow along with one of our tasty recipes!<br><br> Sign Up today to get notified of new recipes and great new offers!</p>
                 <p class="hiw_button"><a href="#hiw">Discover more here!</a></p>
             </div>
@@ -74,22 +74,103 @@
     <h1>How It Works!</h1>
     <div class="container-fluid">
         <div class="row">
-          <div class="col-sm-4" style=" background-color: #EABA6B;"><img src="{{url_for('static',filename='baking.jfif')}}"><br><h3>Ingredients</h3><p>You can't bake without the ingredients. Find a recipe you want to make and gather the things you need, Something missing? Dont worry, we have you covered. Simply click on our products button and you can purchase all the ingredients we have conveniently gathered together for that item in one easy click</p></div>
+          <div class="col-sm-4" style=" background-color: #EABA6B;"><img src="{{url_for('static',filename='baking.jfif')}}"><br><h3>Ingredients</h3><p> Find a recipe you want to make and gather the things you need, Something missing? Dont worry, we have you covered. Simply click on our products button and you can purchase all the required ingredients! </p></div>
           <div class="col-sm-4" style=" background-color: #EABA6B;"><img src="{{url_for('static',filename='cookies.jfif')}}"><br><h3>Lets Bake!</h3>Now that you have your ingredients, Its time to bake, you can follow the recipe by smashing the "Bake It" button of your desired choice on the products page and follow along. Videos coming soon!  </div>
-          <div class="col-sm-4" style=" background-color: #EABA6B;"><img src="{{url_for('static',filename='delivery.jfif')}}"><br><h3>Just Take It!</h3><p>Sometimes life just gets in the way and we find ourselves with little time. This doesnt mean you cant enjoy some of its pleasures. Choose a ready made tray bake from our range and we will take care of the freshly cooking part. All you will need to do is grab your favourite beveridge to enjoy it with and relax</p></div>
+          <div class="col-sm-4" style=" background-color: #EABA6B;"><img src="{{url_for('static',filename='delivery.jfif')}}"><br><h3>Just Take It!</h3><p>Choose a ready made tray bake from our range and we will take care of the freshly cooking part. All you will need to do is grab your favourite beveridge to enjoy it with and relax</p></div>
         </div>
     </div>
     
 
 
 </div>
-<br>
-<br>
-<br>
-    <div class="custory">
-        <H1>Our Customer Stories</H1>
 
-        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+
+    <div class="custory" id="custory">
+        <H1>Our Customer Stories</H1>
+    </div>
+<section class="testcard">    
+        <div class="testcontainer">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="tcard">
+                        <div class="face front-face">
+                            <img src="{{url_for('static',filename='happywoman.jfif')}}?w=500&q=60"
+                            alt="" class="profile">
+                            <div class="pt-3 text-uppercase name">
+                                Eileen Sydways
+                            </div>
+                            <div class="designation">Product Owner</div>
+                        </div>
+                        <div class="face back-face">
+                            <span class="fas fa-quote-left"></span>
+                            <div class="testimonial">
+                                This site makes it really easy for me to get my baking priorities in order, and prioritize what needs done first to meet my families needs
+                            </div>
+                            <span class="fas fa-quote-right"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="tcard">
+                        <div class="face front-face">
+                            <img src="{{url_for('static',filename='children.jfif')}}?w=500&q=60"
+                            alt="" class="profile">
+                            <div class="pt-3 text-uppercase name">
+                                Jamie Dodgers
+                            </div>
+                            <div class="designation">Developer</div>
+                        </div>
+                        <div class="face back-face">
+                            <span class="fas fa-quote-left"></span>
+                            <div class="testimonial">
+                                The kids love to work as a family each doing their own little bit to produce a delicious end product that we are all happy with.
+                            </div>
+                            <span class="fas fa-quote-right"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="tcard">
+                        <div class="face front-face">
+                            <img src="{{url_for('static',filename='happyman.jfif')}}?w=500&q=60"
+                                alt="" class="profile">
+                            <div class="pt-3 text-uppercase name">
+                                Ken Kenson
+                            </div>
+                            <div class="designation">Scrum Master</div>
+                        </div>
+                        <div class="face back-face">
+                            <span class="fas fa-quote-left"></span>
+                            <div class="testimonial">
+                                I love getting the Family together, After Mum has decided what we will make, I  keep an eye on the kids to make sure they know what theyre doing. Following along with the site makes this a doddle.
+                            </div>
+                            <span class="fas fa-quote-right"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="tcard">
+                        <div class="face front-face">
+                            <img src="{{url_for('static',filename='pinkcake.jfif')}}?w=500&q=60"
+                            alt="" class="profile">
+                            <div class="pt-3 text-uppercase name">
+                                Benjamin Dover
+                            </div>
+                            <div class="designation">Stakeholder</div>
+                        </div>
+                        <div class="face back-face">
+                            <span class="fas fa-quote-left"></span>
+                            <div class="testimonial">
+                                I love to follow the recipes but am so busy I find myself having to order the complete package from the site. Its a pleasure having a team make me exactly what I want.
+                            </div>
+                            <span class="fas fa-quote-right"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>        
+        <!-- <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="carousel-content">
@@ -135,7 +216,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Add more carousel items as needed -->
+                <!-- Add more carousel items as needed --
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -149,27 +230,16 @@
                 
          
     
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+</div> -->
+
 <div class="aboutus" id="aboutus">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-8" style="padding: 20px;"><h1>About Us</h1><br><br><br>We are a small team passionate about baking. Our mission is to have the rest of the world passionate about it also. Somtimes we have to start a little smaller than we would like though!<br> So here it is!. Great isn't it. Its our little sweet slice of whats to come. We will continuously add recipes and develop ways to make it easier for the world to join us in our passion - Lets get Baking!
+            <div class="col-sm-8" style="padding: 20px;"><h1>About Us</h1><br><br><br>We are a small team passionate about baking. Our mission is to have the rest of the world passionate about it also. Somtimes we have to start a little smaller than we would like though! So here it is!. Great isn't it. Its our little sweet slice of whats to come. We will continuously add recipes and develop ways to make it easier for the world to join us in our passion - Lets get Baking!
             </div>
         <div class="col-sm-4" style="height: 50px;"><img src="{{url_for('static',filename='cupcake.png')}}"></div>
     </div>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -180,40 +250,40 @@
             <div class="foot_col">
                 <h4>company</h4>
                 <ul>
-                    <li><a href="#"></a>about us</li>
-                    <li><a href="#"></a>our services</li>
-                    <li><a href="#"></a>privacy policy</li>
-                    <li><a href="#"></a>affiliate program</li>
+                    <li><a href="#aboutus">about us</a></li>
+                    <li><a href="#hiw">our services</a></li>
+                    <li><a href="{{ url_for('contact_us') }}">privacy policy</a></li>
+                    <li><a href="{{ url_for('contact_us') }}">affiliate program</a></li>
                 </ul>
             </div>
         
             <div class="foot_col">
-                <h4>gethelp</h4>
+                <h4>get help</h4>
                 <ul>
-                    <li><a href="#"></a>FAQ</li>
-                    <li><a href="#"></a>shipping</li>
-                    <li><a href="#"></a>returns</li>
-                    <li><a href="#"></a>order status</li>
-                    <li><a href="#"></a>payment options</li>
+                    <li><a href="{{ url_for('contact_us') }}">FAQ</a></li>
+                    <li><a href="{{ url_for('contact_us') }}">shipping</a></li>
+                    <li><a href="{{ url_for('contact_us') }}">returns</a></li>
+                    <li><a href="{{ url_for('contact_us') }}">order status</a></li>
+                    <li><a href="{{ url_for('contact_us') }}">payment options</a></li>
                 </ul>
             </div>
     
             <div class="foot_col">
                 <h4>online shop</h4>
                 <ul>
-                    <li><a href="#">cake</a></li>
-                    <li><a href="#">bread</a></li>
-                    <li><a href="#">sweet</a></li>
-                    <li><a href="#">savoury</a></li>
+                    <li><a href="{{ url_for('shop') }}">cake</a></li>
+                    <li><a href="{{ url_for('shop') }}">bread</a></li>
+                    <li><a href="{{ url_for('shop') }}">sweet</a></li>
+                    <li><a href="{{ url_for('shop') }}">savoury</a></li>
                 </ul>
             </div>
             <div class="foot_col">
                 <h4>follow us</h4>
                 <div class="social_links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/welovebaking/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/i/topics/846772834588229632"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/baking/"><i class="fab fa-instagram"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                 </div>
             </div>
         </div>
