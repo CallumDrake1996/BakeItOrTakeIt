@@ -12,8 +12,8 @@
 section.testcard {
     /* background: linear-gradient(to bottom, #eaba6b, #ead2ac); */
     background: white
-    animation: background-color 0s;
-    min-height: 400px;
+    /* animation: background-color 0s; */
+    min-height 400px;
 }
 
 /* @keyframes background-color {
