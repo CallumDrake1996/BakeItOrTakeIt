@@ -32,19 +32,19 @@ idNum = 0
 
 cart_contents = []
 products = [
-    {"id": 1, "name": "Bakewell tart", "price": 11.50, 'image': '/static/recipe_img/Bakewell.jpeg', 'html':'BakewellTart' },
+    {"id": 1, "name": "Bakewell tart", "price": 11.53, 'image': '/static/recipe_img/Bakewell.jpeg', 'html':'BakewellTart' },
     {"id": 2, "name": "Banana Bread", "price": 12.03, 'image': '/static/recipe_img/Bananabread.jpeg','html':'BananaBread'},
     {"id": 3, "name": "Belgian buns", "price": 21.24, 'image': '/static/recipe_img/bellgianbread.jpeg','html':'BelgianBuns'},
-    {"id": 4, "name": "Chocolate Brownies", "price": 20.60, 'image': '/static/recipe_img/chocolatebrownies.jpeg','html':'ChocolateBrownies'},
-    {"id": 5, "name": "Chocolate Chip Cookies", "price": 10.20, 'image': '/static/recipe_img/chocochipcookies.jpeg','html':'ChocolateChipCookies'},
+    {"id": 4, "name": "Chocolate Brownies", "price": 20.64, 'image': '/static/recipe_img/chocolatebrownies.jpeg','html':'ChocolateBrownies'},
+    {"id": 5, "name": "Chocolate Chip Cookies", "price": 10.25, 'image': '/static/recipe_img/chocochipcookies.jpeg','html':'ChocolateChipCookies'},
     {"id": 6, "name": "Cinnamon rolls", "price": 20.33, 'image': '/static/recipe_img/fudgybrownies.jpeg','html':'CinnamonRolls'},
     {"id": 7, "name": "Fudgy brownies", "price": 22.71, 'image': '/static/recipe_img/fudgybrownies.jpeg','html':'FudgyBrownies'},
     {"id": 8, "name": "Iced buns with cream & jam", "price": 18.99, 'image': '/static/recipe_img/icedbunswithcreamandjam.jpeg','html':'IcedBunsWithCreamAndJam'},
-    {"id": 9, "name": "lemon baked cheesecake", "price": 4.20, 'image': '/static/recipe_img/lemonbakedcheesecake.jpeg','html':'LemonBakedCheesecake'},
+    {"id": 9, "name": "lemon baked cheesecake", "price": 4.24, 'image': '/static/recipe_img/lemonbakedcheesecake.jpeg','html':'LemonBakedCheesecake'},
     {"id": 10, "name": "Red velvet cupcakes", "price": 19.65, 'image': '/static/recipe_img/Red-Velvet-Cupcakes.jpeg','html':'RedVelvetCupcakes'},
-    {"id": 11, "name": "Rhubarb & custard sandwich biscuits", "price": 14.0, 'image': '/static/recipe_img/RubarbandCustard.jpeg','html':'RhubarbAndCustardSandwichBiscuits'},
-    {"id": 12, "name": "Triple choco peanut butter layer cake", "price": 12.20, 'image': '/static/recipe_img/triplechocolateandpeanutbutterlayercake.jpeg','html':'TripleChocolateAndPeanutButterLayerCake'},
-    {"id": 13, "name": "Tropical upside-down cake", "price": 12.40, 'image': '/static/recipe_img/tropical-upside-down-cake.jpeg','html':'TropicalUpsideDownCake'}]
+    {"id": 11, "name": "Rhubarb & custard sandwich biscuits", "price": 14.02, 'image': '/static/recipe_img/RubarbandCustard.jpeg','html':'RhubarbAndCustardSandwichBiscuits'},
+    {"id": 12, "name": "Triple choco peanut butter layer cake", "price": 12.21, 'image': '/static/recipe_img/triplechocolateandpeanutbutterlayercake.jpeg','html':'TripleChocolateAndPeanutButterLayerCake'},
+    {"id": 13, "name": "Tropical upside-down cake", "price": 12.42, 'image': '/static/recipe_img/tropical-upside-down-cake.jpeg','html':'TropicalUpsideDownCake'}]
 
 def get_total_items(cart):
     global total_items
@@ -71,7 +71,7 @@ app.secret_key = 'work'
 # Enter your database connection details below
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'password'
+app.config['MYSQL_PASSWORD'] = 'PASSWORD'
 app.config['MYSQL_DB'] = 'MakeItOrTakeIt'
 
 # config mail

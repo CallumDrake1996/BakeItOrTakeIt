@@ -26,7 +26,7 @@
         <td><img class='icon_basket' src="/static/recipe_img/Bakewell.jpeg" alt="" width="80"></td>
         <td><h5 class="col-mb-1">{{ item['name'] }}</h5></td>
         <td><p class="col-mb-1">Price: &pound;{{ item['price'] }}</p></td>
-        <td><input type="number" class="form-control" name="quantity_{{ item['id'] }}" value="{{ item['quantity'] }}"></td>
+        <td><p>{{ item['quantity'] }}</p></td>
         </tr>
         {%endfor%}
         <tr>
