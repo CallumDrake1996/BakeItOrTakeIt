@@ -44,7 +44,8 @@ products = [
     {"id": 10, "name": "Red velvet cupcakes", "price": 19.65, 'image': '/static/recipe_img/Red-Velvet-Cupcakes.jpeg','html':'RedVelvetCupcakes'},
     {"id": 11, "name": "Rhubarb & custard sandwich biscuits", "price": 14.02, 'image': '/static/recipe_img/RubarbandCustard.jpeg','html':'RhubarbAndCustardSandwichBiscuits'},
     {"id": 12, "name": "Triple choco peanut butter layer cake", "price": 12.21, 'image': '/static/recipe_img/triplechocolateandpeanutbutterlayercake.jpeg','html':'TripleChocolateAndPeanutButterLayerCake'},
-    {"id": 13, "name": "Tropical upside-down cake", "price": 12.42, 'image': '/static/recipe_img/tropical-upside-down-cake.jpeg','html':'TropicalUpsideDownCake'}]
+    {"id": 13, "name": "Tropical upside-down cake", "price": 12.42, 'image': '/static/recipe_img/tropical-upside-down-cake.jpeg','html':'TropicalUpsideDownCake'},
+    {"id": 14, "name": "Victorias Toast", "price": 9.99, 'image': '/static/toast.jpeg','html':'Toast'}]
 
 def get_total_items(cart):
     global total_items
@@ -71,7 +72,7 @@ app.secret_key = 'work'
 # Enter your database connection details below
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'PASSWORD'
+app.config['MYSQL_PASSWORD'] = 'password'
 app.config['MYSQL_DB'] = 'MakeItOrTakeIt'
 
 # config mail
@@ -385,6 +386,24 @@ def TripleChocolateAndPeanutButterLayerCake():
 def TropicalUpsideDownCake():
     return render_template('TropicalUpsideDownCake.html', name = name, total_items=total_items)
 
+@app.route('/Toast')
+def Toast():
+    return render_template('Toast.html', name = name, total_items=total_items)
+
+@app.route('/ChangeName', methods=['POST', 'GET'])
+def ChangeName():
+    global username
+    global name
+    msg = ''
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    if request.method == 'POST' and 'newFirst' in request.form:
+        newFirst = request.form['newFirst']
+        newLast  = request.form['newLast']
+        cursor.execute('UPDATE `MakeItOrTakeIt`.`Login` SET First_name = %s WHERE username = %s', (newFirst, username,))
+        msg = 'your new name has been registered'
+        mysql.connection.commit()
+        name =newFirst
+        return render_template('MyProfile.html', name = name, name2 =name2, username= username, idNum = idNum, password =password)
 
 
 

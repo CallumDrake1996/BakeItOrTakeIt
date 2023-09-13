@@ -72,7 +72,32 @@
                       <th class="tablerpfile" scope="row">Full Name:</th>
                       <td class="tablerpfile">{{name['first_name']}} {{name2['last_name']}}</td>
                       <td></td>
-                      <td><button type="button" class="btn btn-outline-dark">Change</button></td>
+                      <td>
+                        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                          <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Submit new name</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <form method="POST" action='{{url_for("ChangeName")}}'>
+                                <div class="modal-body">
+                                  <div class="row">
+                                      <div class="col-sm-6"><input class="form-control mb-3" type="text" placeholder="First" name="newFirst" 
+                                          id="newFirst" required></div>
+                                      <div class="col-sm-6"><input class="form-control mb-3" type="text" placeholder="Last" name="newLast" 
+                                          id="newLast" required></div>
+                                  </div>
+                                  {{msg}}
+                              </div>                              
+                              <div class="modal-footer">
+                                <button class="btn btn-primary" type="submit">Confirm</button>
+                              </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <button class="btn btn-outline-dark" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Change</button></td>
                       <td></td>
                     </tr>
                     <tr>

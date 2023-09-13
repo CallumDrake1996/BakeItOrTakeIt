@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300;400;500&display=swap');
 
+@font-face {
+  font-family: 'coffecake';
+  src: url('/static/CinnamonCoffeCake-Ea2Pr.ttf');
+}
 
 .body1{
   padding-top: 100px;
@@ -20,7 +24,7 @@ body{
   font-family: 'Merienda';
 
 }
-
+h3{  font-family: 'coffecake';}
 .card-body{
   /* height: 360px; */
 }
@@ -30,7 +34,6 @@ body{
   background-color: rgba(255, 255, 255);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
-  font-family: 'Merienda';
 }
 
 .icon{
