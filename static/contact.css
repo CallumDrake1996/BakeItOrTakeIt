@@ -32,6 +32,7 @@ input[type=submit]:hover {
   border-radius: 9px;
   background-color: #f3f1eb;
   padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .table-container {
@@ -42,5 +43,20 @@ input[type=submit]:hover {
 .table-container {
   text-align: center; /* Center text horizontally */
   margin: 0 auto; /* Center the container horizontally */
-  width: 13%; /* Adjust the width as needed */
+  width: 31%; /* Adjust the width as needed */
+}
+
+body{
+  height: 1300px;
+  margin: 0;
+  padding: 0;
+  background: url(/static/main_cover.png
+  );
+  background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+table{
+  width: 400px;
 }

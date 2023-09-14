@@ -91,7 +91,7 @@ app.secret_key = 'work'
 # Enter your database connection details below
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'password'
+app.config['MYSQL_PASSWORD'] = 'PASSWORD'
 app.config['MYSQL_DB'] = 'MakeItOrTakeIt'
 
 # config mail
@@ -235,12 +235,16 @@ def forgotPass():
 def contact_us():
     msg=""
     if request.method == 'POST' and 'email' and 'message' in request.form:
+        user = request.form['name']
         email = request.form['email']
         contact = request.form['message']
         msg = 'Email sent! Thank you we will be right on it :)'
         text_body = render_template('email_contact_us.html',email = email, message= contact)
+        text_body2 = render_template('email_contact_response.html',name=user, message= contact)
         text = Message(subject='contact us', html=text_body, sender =('BakeItOrTakeIt', 't43797192@gmail.com'), recipients = ['t43797192@gmail.com'])
+        text2 = Message(subject='contact us', html=text_body2, sender =('BakeItOrTakeIt', 't43797192@gmail.com'), recipients = [email])
         mail.send(text)
+        mail.send(text2)
     return render_template('contact_us.html', msg = msg, name = name, total_items=total_items)
 
 @app.route('/cart/checkout', methods=['GET', 'POST'])

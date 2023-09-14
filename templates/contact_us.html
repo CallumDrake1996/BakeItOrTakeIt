@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/static/style_head.css">
-  <link rel="stylesheet" href="/static/contact.css">
   <style>
     .table-container {
       text-align: center; /* Center text horizontally */
@@ -13,6 +11,7 @@
     }
   </style>  
   <title> Contact Us </title>
+  <link rel="stylesheet" href="/static/contact.css">
   <link rel="stylesheet" href="/static/style_head.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="icon" href="{{url_for('static',filename='logoicon.png' )}}" type="image/icon type">
@@ -49,6 +48,7 @@
 <br>
 
 <body>
+<form action="/contact_us" method="POST">
 <div class="container">
   <div style="text-align:center; padding-top: 80px;">
 <h1>Contact Us</h1>
@@ -59,22 +59,29 @@
 <table>
   <tr>
     <td>
+      <div class="form-group">
       <label for="name">Name:</label><br>
-      <input type="text" id="name" name="name">
+      <input class="form-control form-control-lg" type="text" placeholder="Name" name="name" id= "name" >
+      </div>
     </td>
   </tr>
   <tr>
     <td>
       <label for="email">Email:</label><br>
-      <input type="email" id="email" name="email">
+      <input class="form-control form-control-lg" type="email" placeholder="Email" name="email" id= "email" required>
     </td>
   </tr>
   <tr>
     <td>
       <label for="message">Message:</label><br>
-      <textarea id="message" name="message"></textarea>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Message" name="message"></textarea>
     </td>
   </tr>
+  <tr> <td><br></td></tr>
+  <tr>
+    <td>{{msg}}</td>
+  </tr>
+  <tr> <td><br></td></tr>
   <tr>
     <td>
       <input type="submit" value="Submit">
@@ -85,5 +92,6 @@
 </div>
   </div>
 </div>
+</form>
 </body>
 </html>
