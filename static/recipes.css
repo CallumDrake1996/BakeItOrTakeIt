@@ -34,21 +34,27 @@ h2{
 }
 
 .col-sm-6 vidcont {
-  width: 100%;
+  width: 80px;
   height: 0;
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  padding-left: 45px;
   position: relative;
 }
   
-.col-sm-6.video {
+.col-sm-6.video video {
   width: 100%;
   height: 200px;
-  position: absolute;
+  position: flex;
   top: 0;
-  left: 0;
+  left: 40px;
   border: 25px solid beige;
   border-style: groove;
 
+}
+
+.col-sm-6.col-sm-6.video video {
+  display: block;
+  margin-left: 40px;
 }
   
 @media screen and (min-width:1200px) {
