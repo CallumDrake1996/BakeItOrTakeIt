@@ -26,7 +26,7 @@
             {% else %}       
                 <li><a href="{{ url_for('home') }}">Welcome</a></li>
             {% endif %}     
-            <li><a href="#aboutus">About us</a></li>
+            <li><a href="home#aboutus">About us</a></li>
             <li><a href="{{ url_for('shop') }}">products</a></li>
             <li><a href="{{ url_for('contact_us') }}">Contact</a></li>
             {% if session.name %}
@@ -54,7 +54,7 @@
               <h4>Order Successful</h4>
               <h5>Thank you {{firstname}} so much for your order!</h5>
               <br>
-              <a class="btn btn btn-info btn-lg btn-block" id='back'  href="{{ url_for('home') }}">Back</a>
+              <a class="btn btn-lg btn-outline-primary" id='back'  href="{{ url_for('home') }}">Back</a>
             </div>
           </div>
         </div>

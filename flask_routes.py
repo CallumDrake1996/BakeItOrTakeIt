@@ -1,11 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_mysqldb import MySQL
 from flask_mail import Mail, Message
 from flask_session import Session
 import MySQLdb.cursors
 import MySQLdb.cursors, re, hashlib
 import math
-from flask import Flask,render_template,request,redirect,flash
 from flask import jsonify
 import random
 
@@ -37,7 +36,7 @@ products = [
     {"id": 3, "name": "Belgian buns", "price": 21.24, 'image': '/static/recipe_img/bellgianbread.jpeg','html':'BelgianBuns'},
     {"id": 4, "name": "Chocolate Brownies", "price": 20.64, 'image': '/static/recipe_img/chocolatebrownies.jpeg','html':'ChocolateBrownies'},
     {"id": 5, "name": "Chocolate Chip Cookies", "price": 10.25, 'image': '/static/recipe_img/chocochipcookies.jpeg','html':'ChocolateChipCookies'},
-    {"id": 6, "name": "Cinnamon rolls", "price": 20.33, 'image': '/static/recipe_img/fudgybrownies.jpeg','html':'CinnamonRolls'},
+    {"id": 6, "name": "Cinnamon rolls", "price": 20.33, 'image': '/static/cinnamonrolls.webp','html':'CinnamonRolls'},
     {"id": 7, "name": "Fudgy brownies", "price": 22.71, 'image': '/static/recipe_img/fudgybrownies.jpeg','html':'FudgyBrownies'},
     {"id": 8, "name": "Iced buns with cream & jam", "price": 18.99, 'image': '/static/recipe_img/icedbunswithcreamandjam.jpeg','html':'IcedBunsWithCreamAndJam'},
     {"id": 9, "name": "lemon baked cheesecake", "price": 4.24, 'image': '/static/recipe_img/lemonbakedcheesecake.jpeg','html':'LemonBakedCheesecake'},
@@ -92,7 +91,7 @@ app.secret_key = 'work'
 # Enter your database connection details below
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'PASSWORD'
+app.config['MYSQL_PASSWORD'] = 'password'
 app.config['MYSQL_DB'] = 'MakeItOrTakeIt'
 
 # config mail
@@ -261,11 +260,15 @@ def checkout():
     postcode = request.form['Postcode']
     city = request.form['City']
     order = session['cart']
+    emailus = 't43797192@gmail.com'
     if request.method == 'POST' and 'CardNum' in request.form:
         orderNum = random.randint(100000, 999999)
+        text_body1 = render_template('order.html', amount = format(basket_amount_delivery, '.2f'), firstname = firstname, lastname=lastname, streetname=streetname, postcode=postcode,  city=city, orderNum= orderNum, order=order)
         text_body = render_template('email_checkout.html', amount = format(basket_amount_delivery, '.2f'), firstname=firstname, lastname=lastname, streetname=streetname, postcode=postcode,  city=city, orderNum= orderNum, order=order)
         text = Message(subject='Order Confirmation', html=text_body, sender =('BakeItOrTakeIt', 't43797192@gmail.com'), recipients = [username])
+        texta = Message(subject='order form', html= text_body1, sender=('BakeItOrTakeIt', 't43797192@gmail.com'), recipients = [emailus])
         mail.send(text)
+        mail.send(texta)
         clear_cart()
         session['cart'] = []
         session.modified = True
@@ -420,10 +423,58 @@ def ChangeName():
         newFirst = request.form['newFirst']
         newLast  = request.form['newLast']
         cursor.execute('UPDATE `MakeItOrTakeIt`.`Login` SET First_name = %s WHERE username = %s', (newFirst, username,))
-        msg = 'your new name has been registered'
+        cursor.execute('UPDATE `MakeItOrTakeIt`.`Login` SET Last_name = %s WHERE username = %s', (newLast, username,))
         mysql.connection.commit()
         name =newFirst
-        return render_template('MyProfile.html', name = name, name2 =name2, username= username, idNum = idNum, password =password)
+        return redirect (url_for('refresh'))
+    
+@app.route('/ChangeEmail', methods=['POST', 'GET'])
+def ChangeEmail():
+    global username
+    global name
+    msg = ''
+    if request.method == 'POST' and 'email' in request.form:
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        email = request.form['email']
+        cursor.execute('UPDATE `MakeItOrTakeIt`.`Login` SET username = %s WHERE User_id = %s', (email, idNum['User_id'],))
+        cursor.execute('UPDATE `MakeItOrTakeIt`.`Login` SET email = %s WHERE User_id = %s', (email, idNum['User_id'],))
+        mysql.connection.commit()
+        return redirect (url_for('refresh'))
+    
+
+@app.route('/ChangePassword', methods=['POST', 'GET'])
+def ChangePassword():
+    global username
+    global name
+    if request.method == 'POST' and 'password' in request.form:
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        password = request.form['password']
+        cursor.execute('UPDATE `MakeItOrTakeIt`.`Login` SET password = %s WHERE User_id = %s', (password, idNum['User_id'],))
+        mysql.connection.commit()
+        return redirect (url_for('refresh'))
+    
+@app.route('/refresh', methods= ['POST', 'GET'])
+def refresh():
+    global username
+    global name
+    global name2
+    global idNum
+    global password
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('SELECT username FROM Login WHERE User_id = %s', (idNum['User_id'],))
+    username = cursor.fetchone()
+    username = username['username']
+    cursor.execute('SELECT first_name FROM Login WHERE username = %s', (username,))
+    first_name = cursor.fetchone()
+    name = first_name
+    cursor.execute('SELECT last_name FROM Login WHERE username = %s', (username,))
+    last_name = cursor.fetchone()
+    name2= last_name
+    cursor.execute('SELECT User_id FROM Login WHERE username = %s', (username,))
+    idNum = cursor.fetchone()
+    cursor.execute('SELECT password FROM Login WHERE username = %s', (username,))
+    password = cursor.fetchone()
+    return redirect (url_for('myProfile'))
 
 @app.route('/add/<int:product_id>', methods=['POST', 'GET'])
 def add_to_cart1(product_id):

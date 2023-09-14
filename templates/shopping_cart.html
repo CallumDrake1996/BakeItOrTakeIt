@@ -33,7 +33,7 @@
               {% else %}       
                   <li><a href="{{ url_for('home') }}">Welcome</a></li>
               {% endif %}     
-              <li><a href="#aboutus">About us</a></li>
+              <li><a href="home#aboutus">About us</a></li>
               <li><a href="{{ url_for('shop') }}">products</a></li>
               <li><a href="{{ url_for('contact_us') }}">Contact</a></li>
               {% if session.name %}
