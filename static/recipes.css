@@ -33,38 +33,3 @@ h2{
   margin-left: 60px;
 }
 
-.col-sm-6 vidcont {
-  width: 80px;
-  height: 0;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  padding-left: 45px;
-  position: relative;
-}
-  
-.col-sm-6.video video {
-  width: 100%;
-  height: 200px;
-  position: flex;
-  top: 0;
-  left: 40px;
-  border: 25px solid beige;
-  border-style: groove;
-
-}
-
-.col-sm-6.col-sm-6.video video {
-  display: block;
-  margin-left: 40px;
-}
-  
-@media screen and (min-width:1200px) {
-  .col-sm-6 .video {
-    /* width: 500px; 
-    height: 281.25px; */
-    width: 100%;
-    height: 50%;
-    border: 25px solid beige;
-    border-style: groove;
-}
-}
-  
