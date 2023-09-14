@@ -12,23 +12,27 @@
     <p>As soon as you get your package, tag us in your photos and we'll highlight them in our stories.</p>
     <p>Let's create some beautiful moments together!</p>
     <p>If you have any concerns or questions, feel free to contact us.</p>
+    <p>Your delivery will be with you in 3-5 working days</p>
     <div class="orderDetails">
       <div>
-        <h4>Address</h4>
+        <h4><u>Address</u></h4>
+        <br>
         <p>{{streetname}}</p>
-        <p>{{postcode}} {{city}}</p>
+        <br>
+        <p>{{postcode}}    {{city}}</p>
       </div>
       <div>
         <h4>Order Details</h4>
         <table>
         {% for item in order %}
         <tr>
-        <td><img class='icon_basket' src="/static/recipe_img/Bakewell.jpeg" alt="" width="80"></td>
+        <td><img class='icon_basket' src="" alt="" width="80"></td>
         <td><h5 class="col-mb-1">{{ item['name'] }}</h5></td>
         <td><p class="col-mb-1">Price: &pound;{{ item['price'] }}</p></td>
         <td><p>{{ item['quantity'] }}</p></td>
         </tr>
         {%endfor%}
+        <td><p>delivery charge &pound;2.50</p></td>
         <tr>
           <th>Total price:</th>
           <td>{{amount}}</td>

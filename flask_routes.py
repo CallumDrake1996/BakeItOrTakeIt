@@ -92,7 +92,7 @@ app.secret_key = 'work'
 # Enter your database connection details below
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'password'
+app.config['MYSQL_PASSWORD'] = 'PASSWORD'
 app.config['MYSQL_DB'] = 'MakeItOrTakeIt'
 
 # config mail
@@ -263,7 +263,7 @@ def checkout():
     order = session['cart']
     if request.method == 'POST' and 'CardNum' in request.form:
         orderNum = random.randint(100000, 999999)
-        text_body = render_template('email_checkout.html', amount = basket_amount_delivery, firstname=firstname, lastname=lastname, streetname=streetname, postcode=postcode,  city=city, orderNum= orderNum, order=order)
+        text_body = render_template('email_checkout.html', amount = format(basket_amount_delivery, '.2f'), firstname=firstname, lastname=lastname, streetname=streetname, postcode=postcode,  city=city, orderNum= orderNum, order=order)
         text = Message(subject='Order Confirmation', html=text_body, sender =('BakeItOrTakeIt', 't43797192@gmail.com'), recipients = [username])
         mail.send(text)
         clear_cart()
@@ -309,7 +309,7 @@ def cart():
     basket_amount = total_price
     basket_amount_delivery= float(basket_amount + 2.50)
     format(basket_amount_delivery, '.2f')
-    return render_template('shopping_cart.html', name= name, total_price = format(basket_amount, '.2f'), total_price_delivery =  format(basket_amount_delivery, '.2f'), total_items=total_items, msg= msg,)
+    return render_template('shopping_cart.html', name= name, total_price = format(basket_amount, '.2f'), total_price_delivery =  format(basket_amount_delivery, '.2f'), total_items=total_items, msg= msg,products=products)
 
 @app.route('/totalitems')
 def totalitems():
