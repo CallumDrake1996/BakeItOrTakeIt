@@ -47,6 +47,23 @@ products = [
     {"id": 13, "name": "Tropical upside-down cake", "price": 12.42, 'image': '/static/recipe_img/tropical-upside-down-cake.jpeg','html':'TropicalUpsideDownCake'},
     {"id": 14, "name": "Victorias Toast", "price": 9.99, 'image': '/static/toast.jpeg','html':'Toast'}]
 
+products2 = [
+    {"id": 100, "name": "Bakewell tart ingredients", "price": 15.99, 'image': '/static/recipe_img/Bakewell.jpeg', 'html':'BakewellTart' },
+    {"id": 200, "name": "Banana Bread ingredients", "price": 15.99, 'image': '/static/recipe_img/Bananabread.jpeg','html':'BananaBread'},
+    {"id": 300, "name": "Belgian buns ingredients", "price": 15.99, 'image': '/static/recipe_img/bellgianbread.jpeg','html':'BelgianBuns'},
+    {"id": 400, "name": "Chocolate Brownies ingredients", "price": 18.99, 'image': '/static/recipe_img/chocolatebrownies.jpeg','html':'ChocolateBrownies'},
+    {"id": 500, "name": "Chocolate Chip Cookies ingredients", "price": 18.99, 'image': '/static/recipe_img/chocochipcookies.jpeg','html':'ChocolateChipCookies'},
+    {"id": 600, "name": "Cinnamon rolls ingredients", "price": 18.99, 'image': '/static/recipe_img/fudgybrownies.jpeg','html':'CinnamonRolls'},
+    {"id": 700, "name": "Fudgy brownies ingredients", "price": 18.99, 'image': '/static/recipe_img/fudgybrownies.jpeg','html':'FudgyBrownies'},
+    {"id": 800, "name": "Iced buns with cream & jam ingredients", "price": 16.99, 'image': '/static/recipe_img/icedbunswithcreamandjam.jpeg','html':'IcedBunsWithCreamAndJam'},
+    {"id": 900, "name": "lemon baked cheesecake ingredients", "price": 16.99, 'image': '/static/recipe_img/lemonbakedcheesecake.jpeg','html':'LemonBakedCheesecake'},
+    {"id": 1000, "name": "Red velvet cupcakes ingredients", "price": 16.99, 'image': '/static/recipe_img/Red-Velvet-Cupcakes.jpeg','html':'RedVelvetCupcakes'},
+    {"id": 1100, "name": "Rhubarb & custard sandwich biscuits ingredients", "price": 12.77, 'image': '/static/recipe_img/RubarbandCustard.jpeg','html':'RhubarbAndCustardSandwichBiscuits'},
+    {"id": 1200, "name": "Triple choco peanut butter layer cake ingredients", "price": 12.77, 'image': '/static/recipe_img/triplechocolateandpeanutbutterlayercake.jpeg','html':'TripleChocolateAndPeanutButterLayerCake'},
+    {"id": 1300, "name": "Tropical upside-down cake ingredients", "price": 12.77, 'image': '/static/recipe_img/tropical-upside-down-cake.jpeg','html':'TropicalUpsideDownCake'},
+    {"id": 1400, "name": "Victorias Toast ingredients", "price": 9.99, 'image': '/static/toast.jpeg','html':'Toast'}]
+
+
 def get_total_items(cart):
     global total_items
     total_items = sum(item["quantity"] for item in cart)
@@ -61,6 +78,9 @@ def get_product_by_id(product_id):
     for product in products:
         if product["id"] == product_id:
             return product
+    for product in products2:
+        if product['id'] == product_id:
+            return product
     return None
 
 # Route for handling the login page logic
@@ -72,7 +92,7 @@ app.secret_key = 'work'
 # Enter your database connection details below
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'password'
+app.config['MYSQL_PASSWORD'] = 'PASSWORD'
 app.config['MYSQL_DB'] = 'MakeItOrTakeIt'
 
 # config mail
@@ -405,6 +425,23 @@ def ChangeName():
         name =newFirst
         return render_template('MyProfile.html', name = name, name2 =name2, username= username, idNum = idNum, password =password)
 
+@app.route('/add/<int:product_id>', methods=['POST', 'GET'])
+def add_to_cart1(product_id):
+    product = get_product_by_id(product_id)
+    if product:
+        for item in cart_contents:
+            if item['id'] == product_id:
+                item['quantity'] += 1
+                flash('Item added to basket')
+                session['cart'] = cart_contents
+                session.modified = True
+                break
+        else:
+            cart_contents.append({"id": product_id, "name": product['name'], "price": product['price'], "quantity": 1})
+            flash('Item added to basket')
+            session['cart'] = cart_contents
+            session.modified = True
+    return redirect(url_for('totalitems'))
 
 
 if __name__ == '__main__':
