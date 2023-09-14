@@ -233,7 +233,7 @@ nav a {
 
 .login_button a {
     border: 2px solid var(--teal_colour);
-    border-radius: 10%;
+    /* border-radius: 10%; */
     border-left-width: 20px;
     border-right-width: 20px;
     background-color: var(--teal_colour);
