@@ -47,7 +47,7 @@ h1 {
     background-color: rgba(214, 73, 51, 0.5)
 }
 .col-sm-9.intro_box h2 {
-    text-align: right;
+    text-align: left;
     font-weight: 800;
 }
 
