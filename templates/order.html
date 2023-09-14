@@ -6,16 +6,11 @@
 </head>
 <body>
 <img src="https://github.com/CallumDrake1996/BakeItOrTakeIt/blob/main/static/logo.png?raw=true" height="80" alt = "logo" class= "logo">
-    <p>Hello {{firstname}} {{lastname}},</p>
-    <p>Thank you for your order!</p>
+    <p>Customers Name: {{firstname}} {{lastname}},</p>
     <p>Order number : #00{{orderNum}}</p>
-    <p>As soon as you get your package, tag us in your photos and we'll highlight them in our stories.</p>
-    <p>Let's create some beautiful moments together!</p>
-    <p>If you have any concerns or questions, feel free to contact us.</p>
-    <p>Your delivery will be with you in 3-5 working days</p>
     <div class="orderDetails">
       <div>
-        <h4><u>Address</u></h4>
+        <h4><u>Customers Address</u></h4>
         <p>{{streetname}}</p>
         <p>{{postcode}}  {{city}}</p>
       </div>
@@ -27,7 +22,7 @@
         <td><img class='icon_basket' src="https://raw.githubusercontent.com/CallumDrake1996/BakeItOrTakeIt/main/static/deliveryicon.png" alt="" width="80"></td>
         <td><h5 class="col-mb-1">{{ item['name'] }}</h5></td>
         <td><p class="col-mb-1">Price: &pound;{{ item['price'] }}</p></td>
-        <td><p>{{ item['quantity'] }}</p></td>
+        <td><p>qty: {{ item['quantity'] }}</p></td>
         </tr>
         {%endfor%}
         <td><p>delivery charge &pound;2.50</p></td>
@@ -38,7 +33,5 @@
         </table>
       </div>
     </div>
-    <p>Best regards,</p>
-    <p>Bake It Or Take It</p>
 </body>
 </html>

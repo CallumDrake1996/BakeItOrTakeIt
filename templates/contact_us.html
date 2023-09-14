@@ -31,7 +31,7 @@
               <li><a href="{{ url_for('logout') }}">hi {{name['first_name']}}</a></li>
               <li class="cart_icon"><a href="{{url_for('cart')}}"><img src="{{ url_for('static', filename='cart_icon.png') }}" alt="cart icon"><span class="ti">{{ total_items }}</span></a></li>
               {% else %}       
-                  <li><a href="{{ url_for('about') }}">Welcome</a></li>
+                  <li><a href="home#aboutus">Welcome</a></li>
               {% endif %}     
               <li><a href="{{ url_for('home') }}#aboutus">About us</a></li>
               <li><a href="{{ url_for('shop') }}">products</a></li>

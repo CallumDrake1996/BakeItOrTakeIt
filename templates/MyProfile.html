@@ -88,7 +88,6 @@
                                       <div class="col-sm-6"><input class="form-control mb-3" type="text" placeholder="Last" name="newLast" 
                                           id="newLast" required></div>
                                   </div>
-                                  {{msg}}
                               </div>                              
                               <div class="modal-footer">
                                 <button class="btn btn-primary" type="submit">Confirm</button>
@@ -104,14 +103,59 @@
                       <th class="tablerpfile" scope="row">Email:</th>
                       <td class="tablerpfile">{{username}}</td>
                       <td></td>
-                      <td><button type="button" class="btn btn-outline-dark">Change</button></td>
+                      <td>
+                        <div class="modal fade" id="email" aria-hidden="true" aria-labelledby="email" tabindex="-2">
+                          <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="email">Submit new email</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <form method="POST" action='{{url_for("ChangeEmail")}}'>
+                                <div class="modal-body">
+                                  <div class="row">
+                                      <div class="col"><input class="form-control mb-3" type="text" placeholder="newemail@outlook.com" name="email" 
+                                          id="email" required></div>
+                                  </div>
+                              </div>                              
+                              <div class="modal-footer">
+                                <button class="btn btn-primary" type="submit">Confirm</button>
+                              </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <button class="btn btn-outline-dark" data-bs-target="#email" data-bs-toggle="modal">Change</button></td>
+                      </td>
                       <td></td>
                     </tr>
                     <tr>
                       <th class="tablerpfile" scope="row">password:</th>
                       <td class="tablerpfile">{{password['password']}}</td>
                       <td></td>
-                      <td><button type="button" class="btn btn-outline-dark">Change</button></td>
+                      <td>
+                        <div class="modal fade" id="password" aria-hidden="true" aria-labelledby="password" tabindex="-2">
+                          <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="password">Submit new password</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <form method="POST" action='{{url_for("ChangePassword")}}'>
+                                <div class="modal-body">
+                                  <div class="row">
+                                      <div class="col"><input class="form-control mb-3" type="password" placeholder="1231412312" name="password" id="password" required></div>
+                                  </div>
+                              </div>                              
+                              <div class="modal-footer">
+                                <button class="btn btn-primary" type="submit">Confirm</button>
+                              </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <button class="btn btn-outline-dark" data-bs-target="#password" data-bs-toggle="modal">Change</button></td>
+                      </td>
                       <td></td>
                     </tr>
                   </tbody>
